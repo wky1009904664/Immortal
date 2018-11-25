@@ -24,6 +24,15 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
         return gu.good.goodProperty.ID;
     }
 
+    public void DestroyGoodUI()
+    {
+        foreach (Transform child in transform)
+        {
+            //Destroy(child.gameObject);
+            DestroyImmediate(child.gameObject);
+        }
+    }
+
     public GameObject goodPrefab;
     public void StoreGood(KnapsackGood good)
     {
@@ -64,8 +73,9 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
             {
                 GameObject goodUI = this.transform.GetChild(0).GetComponent<GameObject>();
                 KnapsackManager.GetInstance.HideToolTilePanel();
-                Destroy(this.transform.GetChild(0).gameObject);
-                
+                DestroyImmediate(this.transform.GetChild(0).gameObject);
+                Inventory.GetInstance.SaveInventory();
+                Inventory.GetInstance.LoadInventory();
             }
         }
     }

@@ -20,6 +20,7 @@ public class GoodUI : MonoBehaviour {
     {
         this.good = good;
         GoodUIImage.sprite = Resources.Load<Sprite>(good.goodProperty.sprite);
+        
     }
 
 

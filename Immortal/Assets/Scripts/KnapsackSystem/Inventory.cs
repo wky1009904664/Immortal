@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
 
 public class Inventory : MonoBehaviour {
 
@@ -55,12 +56,67 @@ public class Inventory : MonoBehaviour {
     {
         foreach(Slot s in slotList)
         {
-            if (s.transform.childCount == 0 || s.transform.gameObject.activeInHierarchy == false)
+            if (s.transform.childCount == 0)
                 return s;
         }
         Debug.Log("Is filled");
         return null;
     }
+
+    public void SaveInventory()
+    {
+        StringBuilder sb = new StringBuilder();
+        foreach(Slot slot in slotList)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                GoodUI goodUI = slot.transform.GetChild(0).GetComponent<GoodUI>();
+                sb.Append(goodUI.good.goodProperty.ID + "-");
+            }
+          //  else
+          //  {
+          //      sb.Append("0-");
+          //  }
+        }
+        PlayerPrefs.SetString(this.gameObject.name, sb.ToString());
+    }
+
+    public void LoadInventory()
+    {
+        Load1();
+        Load2();
+    }
+
+    public void Load1()
+    {
+        if (PlayerPrefs.HasKey(this.gameObject.name))
+        {
+            Transform tran1 = this.transform.GetChild(0);
+            foreach(Transform child in tran1)
+            {
+                Slot slot = child.GetComponent<Slot>();
+                slot.DestroyGoodUI();
+            }
+          
+        }
+    }
+
+    public void Load2()
+    {
+        if (PlayerPrefs.HasKey(this.gameObject.name))
+        {
+            string str = PlayerPrefs.GetString(this.gameObject.name);
+            string[] goodUIarray = str.Split('-');
+            for (int i = 0; i < goodUIarray.Length - 1; i++)
+            {
+                string goodstr = goodUIarray[i];
+                int ID = int.Parse(goodstr);
+                Debug.Log(ID);
+                StoreGood(ID);
+            }
+        }
+    }
+
 
     public void ShowPanel()
     {

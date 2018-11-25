@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     float bulletForce = 1000;
     int floorMask;
     int ladderMask;
+    int UIMask;
     Transform trans;
     public int light = 0;
 
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         floorMask = LayerMask.GetMask("Floor");
         ladderMask = LayerMask.GetMask("Ladder");
+        UIMask = LayerMask.GetMask("KnapsackCanvasSystem");
         rb = GetComponent<Rigidbody>();
         bullet = (GameObject)Resources.Load("Prefabs/Bullet");
         trans = GetComponent<Transform>();
@@ -89,13 +91,19 @@ public class PlayerMovement : MonoBehaviour {
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit floorHit;
-        if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))//这里的camray代表距离和方向
-        {
-            Vector3 playerToMouse = floorHit.point - transform.position;
-            playerToMouse.y = 0;
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            rb.MoveRotation(newRotation);
-            return true;
+        Debug.Log(UIMask);
+        if (!Physics.Raycast(camRay, camRayLength, UIMask))
+        { 
+            if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))//这里的camray代表距离和方向
+            {
+                Vector3 playerToMouse = floorHit.point - transform.position;
+                playerToMouse.y = 0;
+                Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+                rb.MoveRotation(newRotation);
+                return true;
+            }
+            else
+                return false;
         }
         else
             return false;
