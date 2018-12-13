@@ -128,7 +128,7 @@ public class Alert1 : MonoBehaviour {
     
     void Attack()
     {
-        bulletrigi = Instantiate(bullet, this.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        bulletrigi = Instantiate(bullet, this.transform.position+new Vector3(0,0.4f,0), Quaternion.identity).GetComponent<Rigidbody>();
         Vector3 direction = player.position - this.transform.position;
         direction.y = 0;
         Debug.Log(bulletrigi);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour {
+    private float timer = 0f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,7 @@ public class EnemyBullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        timer += Time.deltaTime;
+        if (timer > 4) Destroy(this.gameObject);
+    }
 }

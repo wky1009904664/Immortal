@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour {
 
+    private float timer = 0f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Player")
@@ -17,6 +19,7 @@ public class PlayerBullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        timer += Time.deltaTime;
+        if (timer > 4) Destroy(this.gameObject);
 	}
 }
