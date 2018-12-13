@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2 : MonoBehaviour {
+public class Enemy2 : MonoBehaviour
+{
     [Range(0, 10)]
     public float AlertRadius;
 
@@ -37,30 +38,33 @@ public class Enemy2 : MonoBehaviour {
     void Attack()
     {
         Vector3 direction = player.position - this.transform.position;
+        direction.y = 0;
         for (int i = 0; i < shotAmount; i++)
         {
             bulletrigi = Instantiate(bullet, this.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            direction = Quaternion.Euler(0, 360/shotAmount, 0) * direction;
+            direction = Quaternion.Euler(0, 360 / shotAmount, 0) * direction;
             bulletrigi.AddForce(direction.normalized * bulletSpeed);
         }
-        
+
         timeval = 0;
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         Alert();
         timeval += Time.deltaTime;
         if (timeval >= Attackcd)
         {
-            if(AlertIsTrue)
+            if (AlertIsTrue)
                 Attack();
         }
-	}
+    }
 }

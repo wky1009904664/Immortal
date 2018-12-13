@@ -58,12 +58,15 @@ public class Alert1 : MonoBehaviour {
 
         Vector3 target1 = origin + wanderDirection * wanderDistance;
         Vector3 target2 = origin - wanderDirection * wanderDistance;
+        //Quaternion changedire = Quaternion.Euler(0, 180, 0);
+       // Debug.Log(Vector3.Distance(this.transform.position, target1));
         if (flag == 0)//朝1走
         {
             //rigi.velocity = wanderDirection.normalized * walkspeed;
             this.transform.Translate((wanderDirection) * walkspeed * Time.deltaTime, Space.World);
             Quaternion quat = Quaternion.LookRotation(target1 - this.transform.position);
             this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            Debug.Log(quat.eulerAngles);
             if (Vector3.Distance(this.transform.position, target1) <=1f)
             {
                 flag = 1;
@@ -73,7 +76,10 @@ public class Alert1 : MonoBehaviour {
         {
             this.transform.Translate(-wanderDirection * walkspeed * Time.deltaTime, Space.World);
             Quaternion quat = Quaternion.LookRotation(target2-this.transform.position);
+            Quaternion rota = Quaternion.Euler(0, 90, 0);
+            Debug.Log(quat.eulerAngles);
             this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            Debug.Log(this.transform.rotation);
             if (Vector3.Distance(this.transform.position, target2) <= 1f)
             {
                 flag = 0;
@@ -84,7 +90,7 @@ public class Alert1 : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();
-        bullet=(GameObject)Resources.Load("Prefabs/PlayerBullet");
+        bullet=(GameObject)Resources.Load("Prefabs/EnemyBullet");
         origin = this.transform.position;
         rigi = this.GetComponent<Rigidbody>();
     }
@@ -102,7 +108,6 @@ public class Alert1 : MonoBehaviour {
                 if (AlertIsTrue)
                 {
                     Attack();
-                    Debug.Log("attack");
                 }
             }
         }
@@ -125,8 +130,12 @@ public class Alert1 : MonoBehaviour {
     {
         bulletrigi = Instantiate(bullet, this.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         Vector3 direction = player.position - this.transform.position;
+        direction.y = 0;
         Debug.Log(bulletrigi);
         bulletrigi.AddForce(direction.normalized * bulletSpeed);
+        //Debug.Log(direction);
+       // bulletrigi.velocity = direction.normalized * bulletSpeed;
+       // Debug.Log(bulletrigi.velocity);
         timeval = 0;
     }
 }

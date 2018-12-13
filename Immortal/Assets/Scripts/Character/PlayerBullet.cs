@@ -6,8 +6,8 @@ public class PlayerBullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag!="Floor"&&other.tag!="Player")
-         Destroy(this.gameObject);
+        if (other.tag != "Player")
+            Destroy(this.gameObject);
     }
 
     // Use this for initialization

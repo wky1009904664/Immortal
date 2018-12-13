@@ -6,7 +6,7 @@ public class EnemyBullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Floor"&&other.tag!="Enemy")
+        if (other.tag != "Enemy")
             Destroy(this.gameObject);
     }
 

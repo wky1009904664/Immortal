@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        rb.velocity =new Vector3(0,0,0);
+        //rb.velocity =new Vector3(0,0,0);
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -91,12 +91,11 @@ public class PlayerMovement : MonoBehaviour {
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit floorHit;
-        Debug.Log(UIMask);
         if (!Physics.Raycast(camRay, camRayLength, UIMask))
         { 
-            if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))//这里的camray代表距离和方向
+            if (Physics.Raycast(camRay, out floorHit, camRayLength))//这里的camray代表距离和方向
             {
-                Vector3 playerToMouse = floorHit.point - transform.position;
+                Vector3 playerToMouse = floorHit.point - this.transform.position;
                 playerToMouse.y = 0;
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
                 rb.MoveRotation(newRotation);
@@ -111,7 +110,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void Attack(GameObject bullet)
     {
-        Instantiate(bullet, outpoint.position, outpoint.rotation);
+        Rigidbody bulltrans= Instantiate(bullet, this.transform.position, outpoint.rotation).GetComponent<Rigidbody>();
+        bulltrans.AddForce(outpoint.forward.normalized * bulletForce);
        //bulletrb = bullet.GetComponent<Rigidbody>();
        //bulletrb.AddForce(outpoint.forward.normalized*bulletForce);
        //Debug.Log(outpoint.forward.normalized * bulletForce);
