@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
         ladderMask = LayerMask.GetMask("Ladder");
         UIMask = LayerMask.GetMask("KnapsackCanvasSystem");
         rb = GetComponent<Rigidbody>();
-        bullet = (GameObject)Resources.Load("Prefabs/Bullet");
+        bullet = (GameObject)Resources.Load("Prefabs/PlayerBullet");
         trans = GetComponent<Transform>();
     }
 	
