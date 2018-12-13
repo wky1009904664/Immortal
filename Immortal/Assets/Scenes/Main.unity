@@ -499,6 +499,7 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &286846043
 Prefab:
   m_ObjectHideFlags: 0
@@ -557,6 +558,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_IsPrefabParent: 0
+=======
+>>>>>>> parent of 8beb6aa... First room enemy
 =======
 >>>>>>> parent of 8beb6aa... First room enemy
 --- !u!1 &329648520
@@ -3425,6 +3428,7 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 1315018471}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1331687256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3528,6 +3532,8 @@ MonoBehaviour:
   shotAmount: 5
   Attackcd: 0.3
   bulletSpeed: 1000
+=======
+>>>>>>> parent of 8beb6aa... First room enemy
 =======
 >>>>>>> parent of 8beb6aa... First room enemy
 --- !u!1 &1367591080
