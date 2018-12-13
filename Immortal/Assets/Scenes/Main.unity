@@ -498,6 +498,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &286846043
 Prefab:
   m_ObjectHideFlags: 0
@@ -556,6 +557,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_IsPrefabParent: 0
+=======
+>>>>>>> parent of 8beb6aa... First room enemy
 --- !u!1 &329648520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,7 +1351,7 @@ Rigidbody:
   m_GameObject: {fileID: 555461879}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: Infinity
+  m_Drag: 0
   m_AngularDrag: Infinity
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -1500,7 +1503,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: Infinity
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1567,7 +1570,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594517511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.63, y: 0.69, z: -3.2000008}
+  m_LocalPosition: {x: 0, y: 0.55000305, z: -3.2000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 916543749}
@@ -2468,7 +2471,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 869492713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.519989, y: 1.02, z: 4.580002}
+  m_LocalPosition: {x: 8.519989, y: 1.550003, z: 4.580002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 916543749}
@@ -3421,6 +3424,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224717092026308964, guid: 5d959f79e0a4e394dbbfc607d790dda1,
     type: 2}
   m_PrefabInternal: {fileID: 1315018471}
+<<<<<<< HEAD
 --- !u!1 &1331687256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,6 +3528,8 @@ MonoBehaviour:
   shotAmount: 5
   Attackcd: 0.3
   bulletSpeed: 1000
+=======
+>>>>>>> parent of 8beb6aa... First room enemy
 --- !u!1 &1367591080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,57 +3963,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1421976388}
---- !u!1 &1427000948 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100018, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
-  m_PrefabInternal: {fileID: 286846043}
---- !u!54 &1427000950
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1427000948}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: Infinity
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &1427000951
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1427000948}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06
-  m_Center: {x: 0, y: 0.05, z: 0}
---- !u!114 &1427000952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1427000948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f85e77400c204dd459b4b632031461e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AlertRadius: 6.65
-  Alertangle: 360
-  AlertIsTrue: 0
-  wanderDirection: {x: 0, y: 0, z: 1}
-  wanderDistance: 5
-  walkspeed: 2
-  bulletSpeed: 1000
-  Attackcd: 0.3
-  turnspeed: 1
 --- !u!1001 &1446169751
 Prefab:
   m_ObjectHideFlags: 0
