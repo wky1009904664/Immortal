@@ -41,7 +41,7 @@ public class Enemy2 : MonoBehaviour
         direction.y = 0;
         for (int i = 0; i < shotAmount; i++)
         {
-            bulletrigi = Instantiate(bullet, this.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, 0.4f, 0), Quaternion.identity).GetComponent<Rigidbody>();
             direction = Quaternion.Euler(0, 360 / shotAmount, 0) * direction;
             bulletrigi.AddForce(direction.normalized * bulletSpeed);
         }
