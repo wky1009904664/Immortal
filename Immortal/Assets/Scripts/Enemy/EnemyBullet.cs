@@ -7,6 +7,12 @@ public class EnemyBullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerMovement>().DecreaseHealth(30);
+        }
+            //other.SendMessage("DecreaseHealth");
+        
         if (other.tag != "Enemy" && other.tag != "Bullet")
             Destroy(this.gameObject);
     }
