@@ -17,8 +17,6 @@ public class PlayerMovement : MonoBehaviour {
     Transform trans;
     public int light = 0;
 
-    public int Health=200;
-
     public Transform outpoint;
     
     Rigidbody bulletrb;
@@ -41,8 +39,6 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Health <= 0)
-            Die();
         timeval += Time.deltaTime;
         if (Input.GetButton("Fire1"))
         {
@@ -134,14 +130,4 @@ public class PlayerMovement : MonoBehaviour {
         light += amount;
     }
 
-   public void DecreaseHealth(int n=30)
-    {
-        Health -= n;
-    }
-
-
-    void Die()
-    {
-        Destroy(this.gameObject);
-    }
 } 

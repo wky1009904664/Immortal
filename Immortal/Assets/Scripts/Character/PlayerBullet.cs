@@ -8,8 +8,6 @@ public class PlayerBullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
-            other.SendMessage("DecreaseHealth");
         if (other.tag != "Player")
             Destroy(this.gameObject);
     }

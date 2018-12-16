@@ -19,7 +19,6 @@ public class Alert1 : MonoBehaviour {
     public float Attackcd;
     public float turnspeed;
 
-    int Health=70;
     Rigidbody rigi;
     Transform Playertans;
     Transform player;
@@ -98,8 +97,6 @@ public class Alert1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Health <= 0)
-            Die();
         Alert();
         timeval += Time.deltaTime;
 
@@ -141,16 +138,4 @@ public class Alert1 : MonoBehaviour {
        // Debug.Log(bulletrigi.velocity);
         timeval = 0;
     }
-
-    public void DecreaseHealth()
-    {
-        Health -= 20;
-    }
-
-
-    void Die()
-    {
-        Destroy(this.gameObject);
-    }
-
 }
