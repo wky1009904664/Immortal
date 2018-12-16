@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     private Animator anim;
-    public float speed = 20;
-    public float rotateSpeed = 30;
+    public float speed = 80;
+    public float rotateSpeed = 70;
 
     // Use this for initialization
     void Start()
