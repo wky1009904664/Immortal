@@ -15,6 +15,7 @@ public class Enemy2 : MonoBehaviour
     public float bulletSpeed;
 
     bool AlertIsTrue;
+    int Health=70;
     Transform player;
     GameObject bullet;
     Rigidbody bulletrigi;
@@ -22,6 +23,7 @@ public class Enemy2 : MonoBehaviour
 
     void Alert()
     {
+        
         Vector3 dis = player.position - this.transform.position;
         float distance = dis.magnitude;
         float disAngle = Vector3.Angle(dis, this.transform.forward);
@@ -41,7 +43,7 @@ public class Enemy2 : MonoBehaviour
         direction.y = 0;
         for (int i = 0; i < shotAmount; i++)
         {
-            bulletrigi = Instantiate(bullet, this.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, 0.4f, 0), Quaternion.identity).GetComponent<Rigidbody>();
             direction = Quaternion.Euler(0, 360 / shotAmount, 0) * direction;
             bulletrigi.AddForce(direction.normalized * bulletSpeed);
         }
@@ -60,6 +62,8 @@ public class Enemy2 : MonoBehaviour
     void Update()
     {
         Alert();
+        if (Health <= 0)
+            Die();
         timeval += Time.deltaTime;
         if (timeval >= Attackcd)
         {
@@ -67,4 +71,16 @@ public class Enemy2 : MonoBehaviour
                 Attack();
         }
     }
+
+    public void DecreaseHealth( )
+    {
+        Health -= 20;
+    }
+
+
+    void Die()
+    {
+        Destroy(this.gameObject);
+    }
+
 }
