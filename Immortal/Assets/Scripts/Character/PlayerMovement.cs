@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -17,7 +19,9 @@ public class PlayerMovement : MonoBehaviour {
     Transform trans;
     public int light = 0;
 
-    public int Health=200;
+    public int maxHp=200;
+    private int currentHp;
+    public Slider hpSlider;
 
     public Transform outpoint;
     
@@ -31,6 +35,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Cursor.lockState = CursorLockMode.None;
+        currentHp = maxHp;
         floorMask = LayerMask.GetMask("Floor");
         ladderMask = LayerMask.GetMask("Ladder");
         UIMask = LayerMask.GetMask("KnapsackCanvasSystem");
@@ -41,7 +47,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Health <= 0)
+        if (currentHp <= 0)
             Die();
         timeval += Time.deltaTime;
         if (Input.GetButton("Fire1"))
@@ -54,6 +60,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
         ChangeSpeed();
+        hpSlider.value = (float)currentHp / maxHp;
 	}
 
     private void FixedUpdate()
@@ -116,6 +123,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         Rigidbody bulltrans= Instantiate(bullet, this.transform.position, outpoint.rotation).GetComponent<Rigidbody>();
         bulltrans.AddForce(outpoint.forward.normalized * bulletForce);
+        GameObject.Destroy(bulltrans.gameObject, 0.5f);
        //bulletrb = bullet.GetComponent<Rigidbody>();
        //bulletrb.AddForce(outpoint.forward.normalized*bulletForce);
        //Debug.Log(outpoint.forward.normalized * bulletForce);
@@ -136,12 +144,13 @@ public class PlayerMovement : MonoBehaviour {
 
    public void DecreaseHealth(int n=30)
     {
-        Health -= n;
+        currentHp -= n;
     }
 
 
     void Die()
     {
+        Application.Quit();
         Destroy(this.gameObject);
     }
 } 
