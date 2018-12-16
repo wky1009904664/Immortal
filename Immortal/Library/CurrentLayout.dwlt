@@ -90,7 +90,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 106
+  controlID: 48
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -339,7 +339,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Character/Enemy
+    - Assets/Scenes
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -350,7 +350,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c2300000
     m_LastClickedID: 12482
-    m_ExpandedIDs: 000000007e270000a8290000ce290000dc290000f6290000402a0000642a0000662a00009e2f0000a42f000002300000
+    m_ExpandedIDs: 0000000080270000aa290000d0290000de290000f8290000422a0000662a0000682a0000a42f0000aa2f0000083000000c340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -375,10 +375,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 72}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007e270000a8290000ce290000dc290000f6290000402a0000642a0000662a00009e2f0000a42f000002300000a84e0000
+    m_ExpandedIDs: 0000000080270000aa290000d0290000de290000f8290000422a0000662a0000682a0000a42f0000aa2f0000083000000c340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Main 1
@@ -389,7 +389,7 @@ MonoBehaviour:
         y: 0
         width: 0
         height: 0
-      m_UserData: 10620
+      m_UserData: 10622
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -536,14 +536,14 @@ MonoBehaviour:
     width: 1018
     height: 710
   m_SceneLighting: 1
-  lastFramingTime: 4535.648277964591
+  lastFramingTime: 1835.7792039285375
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.6177588, y: 0.049999952, z: 6.471977}
+    m_Target: {x: 143.30807, y: 11.882141, z: -45.1911}
     speed: 2
-    m_Value: {x: -6.6177588, y: 0.049999952, z: 6.471977}
+    m_Value: {x: 143.30807, y: 11.882141, z: -45.1911}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -566,19 +566,19 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.19097133, y: -0.6506146, z: 0.17399019, w: -0.7141135}
+    m_Target: {x: 0.56313634, y: 0.3817372, z: -0.3279878, w: 0.65542215}
     speed: 2
-    m_Value: {x: 0.19097133, y: 0.6506146, z: -0.17399019, w: 0.71411353}
+    m_Value: {x: 0.56313634, y: 0.3817372, z: -0.3279878, w: 0.65542215}
   m_Size:
-    m_Target: 10.288383
+    m_Target: 1035.3159
     speed: 2
-    m_Value: 10.288383
+    m_Value: 1035.3159
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: -0.19097133, y: -0.6506146, z: 0.17399019, w: -0.7141135}
+  m_LastSceneViewRotation: {x: 0.052817572, y: 0.68051654, z: -0.049293783, w: 0.72916234}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -612,28 +612,28 @@ MonoBehaviour:
     height: 301
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e4050000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 8ef9f9ffe0fcf9ff86f6fdff14fbffff1afbffffa6fbffff00000000da3000006e8e000016900000
+    m_SelectedIDs: f8acf8ff
+    m_LastClickedID: -480008
+    m_ExpandedIDs: f0acf8fff8acf8ff86adf8ff72eaf8ffa6fbffff00000000de310000e43100005a84000002850000ee8a0000468b0000a28b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Mesh6
+      m_OriginalName: Mesh6
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: -480020
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
   m_ExpandedScenes:
-  - Main 1
+  - bable
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting

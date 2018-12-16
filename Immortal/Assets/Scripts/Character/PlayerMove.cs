@@ -13,25 +13,28 @@ public class PlayerMove : MonoBehaviour {
 
     public RotationAxes axes = RotationAxes.MouseXandY;
 
-    public float sensitivityHor = 2.0f;
-    public float sensitivityVert = 9.0f;
+    public float sensitivityHor = 3.0f;
+    public float sensitivityVert = 3.0f;
 
-    public float minVert = -45.0f;
-    public float maxVert = 45.0f;
+    public float minVert = -35.0f;
+    public float maxVert = 35.0f;
 
     private float _rotationX = 0;
  
     public float speed = 80;
-    public float rotateSpeed = 70;
     public float force = 20000;
     public float gravity=50000;
 
+    private GameObject sightBead;
+    private bool showSB;
     private Camera camera;
     private int jump;
 
     // Use this for initialization
     void Start()
     {
+        sightBead = GameObject.Find("sightBead");
+        showSB = true;
         Cursor.lockState = CursorLockMode.Locked;
         jump = 0;
         camera = Camera.main;
@@ -45,14 +48,23 @@ public class PlayerMove : MonoBehaviour {
         if (Input.GetKey(KeyCode.Q))
             camera.transform.Rotate(new Vector3(10, 0, 0) * Time.deltaTime);
 
-        if  ((transform.position.y>65)&&(transform.position.y<68)) jump = 1;
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            showSB = !showSB;
+            sightBead.SetActive(showSB);
+        }
+
+        float y = transform.position.y;
+        if  (((y<7.7)&&(jump>0))  ||  ((y>65)&&(y<68))) jump = 1;
         if (Input.GetKeyDown(KeyCode.Space)&& jump<2)
         {
             this.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 0) * force);
             jump++;
         }
+
+
         this.GetComponent<Rigidbody>().AddForce(new Vector3(0, -1, 0) * gravity * Time.deltaTime);
-        Debug.Log(transform.position.y);
+        //Debug.Log(transform.position.y);
     }
 
     public void setJump()

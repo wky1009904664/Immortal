@@ -225,6 +225,7 @@
   <ItemGroup>
     <Compile Include="Assets\Cylinder.cs" />
     <Compile Include="Assets\RandomThings.cs" />
+    <Compile Include="Assets\RedCube.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy2.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyBullet.cs" />
