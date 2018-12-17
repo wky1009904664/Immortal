@@ -223,18 +223,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Cylinder.cs" />
-    <Compile Include="Assets\RandomThings.cs" />
-    <Compile Include="Assets\RedCube.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy2.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Trip1.cs" />
-    <Compile Include="Assets\Scripts\Character\FirstPerson.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\FirstPerson.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Character\PlayerBullet.cs" />
-    <Compile Include="Assets\Scripts\Character\PlayerMove.cs" />
-    <Compile Include="Assets\Scripts\Character\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\ComeIn.cs" />
+    <Compile Include="Assets\Scripts\Cylinder.cs" />
     <Compile Include="Assets\Scripts\Flow.cs" />
     <Compile Include="Assets\Scripts\flowTirgger.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetGood.cs" />
@@ -248,10 +246,10 @@
     <Compile Include="Assets\Scripts\KnapsackSystem\ToolTilePanel.cs" />
     <Compile Include="Assets\Scripts\MirrorPlane.cs" />
     <Compile Include="Assets\Scripts\NormalBullet.cs" />
+    <Compile Include="Assets\Scripts\RandomThings.cs" />
+    <Compile Include="Assets\Scripts\RedCube.cs" />
     <Compile Include="Assets\Scripts\SetMirrorCP.cs" />
-    <Compile Include="Assets\Scripts\SwapCamera.cs" />
     <Compile Include="Assets\Scripts\Test.cs" />
-    <Compile Include="Assets\Scripts\ThridPerson.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

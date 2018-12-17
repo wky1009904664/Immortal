@@ -18,7 +18,7 @@ af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.T
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.KnapsackManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GoodUI
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EnemyBullet
-dec8a6471c6b8f895d0a5351ed231861 Assembly-CSharp.dll:.PlayerMove
+6da8b0e3f20573a00cb5527e02646657 Assembly-CSharp.dll:.PlayerMove
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -141,6 +141,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 fcbda0e08b3247e8f956d78cb718f4cc Assembly-CSharp.dll:.SetMirrorCP
+6611ddba42fa1d9ef20ac35371b962f7 Assembly-CSharp.dll:.RedCube
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 2a56361227def9f56c2cf57a88b32f4d UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
