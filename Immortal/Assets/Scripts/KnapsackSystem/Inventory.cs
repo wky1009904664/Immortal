@@ -19,7 +19,6 @@ public class Inventory : MonoBehaviour {
                 _instance = GameObject.Find("KnapsackPanel").GetComponent<Inventory>();
             return _instance;
         }
-        
     }
 
 	// Use this for initialization
@@ -97,7 +96,6 @@ public class Inventory : MonoBehaviour {
                 Slot slot = child.GetComponent<Slot>();
                 slot.DestroyGoodUI();
             }
-          
         }
     }
 

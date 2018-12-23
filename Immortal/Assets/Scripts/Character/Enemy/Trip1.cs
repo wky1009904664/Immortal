@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Trip1 : MonoBehaviour {
 
@@ -14,8 +15,18 @@ public class Trip1 : MonoBehaviour {
     public float Attackcd;
     Transform player;
 
-	// Use this for initialization
-	void Start () {
+    private void OnDrawGizmos()
+    {
+        Color color = Handles.color;
+        Color newww = new Color(150, 105, 30, 100);
+        Handles.color = newww;
+        Vector3 StartLine = Quaternion.Euler(0, -Alertangle, 0) * this.transform.forward;
+        Handles.DrawSolidArc(this.transform.position, this.transform.up, StartLine, Alertangle, AlertRadius);
+        Handles.color = newww;
+    }
+
+    // Use this for initialization
+    void Start () {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 	}
 	

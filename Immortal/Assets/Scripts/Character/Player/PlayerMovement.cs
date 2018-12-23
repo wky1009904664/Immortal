@@ -1,27 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
     float speed;
-    float timeval=0;
-    public float shotcd = 0.2f;
-    float normalspeed = 6.0f;
-    float highspeed=9.0f;
+    float timeval=1;
+    float timeval2 =1;
+    float timeval3 = 1;
+    public float shotcd = 0.1f;
+    public float clearcd = 5.0f;
+    float normalspeed = 9.0f;
+    float highspeed=13.0f;
     float camRayLength = 100f;
     float bulletForce = 1000;
     int floorMask;
     int ladderMask;
     int UIMask;
     Transform trans;
-    public int light = 0;
-
-    public int maxHp=200;
-    private int currentHp;
-    public Slider hpSlider;
+    public int lightt = 0;
+    public int darkLight = 0;
+    public float JumpHeight=1;
+    public int Health=200;
 
     public Transform outpoint;
     
@@ -35,8 +35,6 @@ public class PlayerMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Cursor.lockState = CursorLockMode.None;
-        currentHp = maxHp;
         floorMask = LayerMask.GetMask("Floor");
         ladderMask = LayerMask.GetMask("Ladder");
         UIMask = LayerMask.GetMask("KnapsackCanvasSystem");
@@ -47,20 +45,38 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (currentHp <= 0)
+        if (Health <= 0)
             Die();
         timeval += Time.deltaTime;
+        timeval2 += Time.deltaTime;
+        timeval3 += Time.deltaTime;
         if (Input.GetButton("Fire1"))
         {
             if (timeval >= shotcd)
             {
-                if(Turning())
-                Attack(bullet);
+               if(Turning())
+               Attack(bullet);
                 timeval = 0;
             }
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (timeval2 >= clearcd)
+            {
+                ClearScreen();
+                timeval2 = 0;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("1");
+            if (timeval3 >= 1.0f)
+            {
+                this.GetComponent<Rigidbody>().AddForce(this.transform.up * JumpHeight);
+                timeval3 = 0;
+            }
+        }
         ChangeSpeed();
-        hpSlider.value = (float)currentHp / maxHp;
 	}
 
     private void FixedUpdate()
@@ -123,7 +139,6 @@ public class PlayerMovement : MonoBehaviour {
     {
         Rigidbody bulltrans= Instantiate(bullet, this.transform.position, outpoint.rotation).GetComponent<Rigidbody>();
         bulltrans.AddForce(outpoint.forward.normalized * bulletForce);
-        GameObject.Destroy(bulltrans.gameObject, 0.5f);
        //bulletrb = bullet.GetComponent<Rigidbody>();
        //bulletrb.AddForce(outpoint.forward.normalized*bulletForce);
        //Debug.Log(outpoint.forward.normalized * bulletForce);
@@ -139,18 +154,31 @@ public class PlayerMovement : MonoBehaviour {
 
     public void AddLight(int amount)
     {
-        light += amount;
+        lightt += amount;
+    }
+
+    public void AddDarkLight(int amount)
+    {
+        darkLight += amount;
     }
 
    public void DecreaseHealth(int n=30)
     {
-        currentHp -= n;
+        Health -= n;
     }
 
 
     void Die()
     {
-        Application.Quit();
         Destroy(this.gameObject);
+    }
+
+    void ClearScreen()
+    {
+        var bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach(var bullet in bullets)
+        {
+            Destroy(bullet);
+        }
     }
 } 

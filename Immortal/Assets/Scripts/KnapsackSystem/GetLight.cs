@@ -7,16 +7,18 @@ public class GetLight : MonoBehaviour {
 
     PlayerMovement player;
     public int amount = 10;
-    public Text text;
-
+    Text text;
+    GameObject go;
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        text = GameObject.Find("KnapsackCanvasSystem/KnapsackCanvas/KnapsackPanel/Light/Text").GetComponent<Text>();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +26,7 @@ public class GetLight : MonoBehaviour {
         if (other.tag == "Player")
         {
             player.AddLight(amount);
-            text.text = string.Format("光团：{0}", player.light);
+            text.text = string.Format("光团：{0}", player.lightt);
             Destroy(gameObject);
         }
     }

@@ -293,7 +293,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123985870574816}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9, y: 0.1499999, z: -7.57}
+  m_LocalPosition: {x: -19.9, y: 0.1499999, z: -2.42}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4398949330132578}
@@ -334,6 +334,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100002, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -368,6 +369,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100004, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -402,6 +404,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100008, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -436,6 +439,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100010, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   - {fileID: 2100012, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
@@ -471,6 +475,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -505,6 +510,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -539,6 +545,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100006, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -573,6 +580,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100008, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -607,6 +615,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100004, guid: 3973d05119e80db428d84be587dd85f4, type: 3}
   m_StaticBatchInfo:
@@ -718,10 +727,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlertRadius: 6.65
-  Alertangle: 180
+  Alertangle: 360
   AlertIsTrue: 0
-  wanderDirection: {x: -1, y: 0, z: 1}
-  wanderDistance: 10
+  wanderDirection: {x: 0, y: 0, z: 1}
+  wanderDistance: 18
   walkspeed: 3
   bulletSpeed: 1000
   Attackcd: 0.3

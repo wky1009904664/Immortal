@@ -18,6 +18,15 @@ public class FirstPerson : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            transform.Rotate(new Vector3(1,0,0) * -1);
+        }
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+        {
+            transform.Rotate(new Vector3(1, 0, 0) );
+        }
+
         if (flow)
         {
             //改变原始矩阵的某些值

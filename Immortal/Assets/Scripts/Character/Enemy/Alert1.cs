@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Alert1 : MonoBehaviour {
     [Range(0, 10)]
@@ -10,33 +11,73 @@ public class Alert1 : MonoBehaviour {
     public float Alertangle;
 
 
-    public bool AlertIsTrue = false;
+    private bool AlertIsTrue = false;
     public Vector3 wanderDirection;
     public float wanderDistance;
     public float walkspeed;
     public float bulletSpeed;
     public float Attackcd;
     public float turnspeed;
+    public float followDistance;
 
     int Health=70;
     Rigidbody rigi;
+    NavRun agent;
     Transform Playertans;
     Transform player;
     Vector3 origin;
     GameObject bullet;
+    GameObject lightt;
     Rigidbody bulletrigi;
+    Vector3 target;
 
-    float timeval = 0;
+    float timeval = 1;
     int flag = 0;
+    int state = 0;
+  //  private void OnDrawGizmos()
+  //  {
+  //      Color color = Handles.color;
+  //      Color newww = new Color(255, 255, 255, 100);
+  //      Handles.color = newww;
+  //      Vector3 StartLine = Quaternion.Euler(0, -Alertangle, 0) * this.transform.forward;
+  //      Handles.DrawSolidArc(this.transform.position, this.transform.up, StartLine, Alertangle, AlertRadius);
+  //      Handles.color = newww;
+  //  }
 
-    // private void OnDrawGizmos()
-    // {
-    //     Color color = Handles.color;
-    //     Handles.color = Color.gray;
-    //     Vector3 StartLine = Quaternion.Euler(0, -Alertangle, 0) * this.transform.forward;
-    //     Handles.DrawSolidArc(this.transform.position, this.transform.up, StartLine, Alertangle, AlertRadius);
-    //     Handles.color = color;
-    // }
+
+    // Use this for initialization
+    void Start () {
+        player = GameObject.Find("Player").GetComponent<Transform>();
+        bullet=(GameObject)Resources.Load("Prefabs/EnemyBullet");
+        lightt = (GameObject)Resources.Load("Prefabs/Light");
+        origin = this.transform.position;
+        rigi = this.GetComponent<Rigidbody>();
+         agent = this.GetComponent<NavRun>();
+        target = origin + wanderDirection * wanderDistance;
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        if (Health <= 0)
+            Die();
+        
+
+        switch (state)
+        {
+            case 0://巡逻
+                Wander();
+                Alert();
+                break;
+            case 1://追击
+                timeval += Time.deltaTime;
+                Attack();
+                Follow();
+                break;
+            case 2://回到初始点
+                Return();
+                break;
+        }
+	}
 
     void Alert()
     {
@@ -45,80 +86,40 @@ public class Alert1 : MonoBehaviour {
         float disAngle = Vector3.Angle(dis, this.transform.forward);
         if (distance <= AlertRadius && disAngle <= Alertangle)
         {
-            AlertIsTrue = true;
-        }
-        else
-        {
-            AlertIsTrue = false;
+            state = 1;
         }
     }
 
     void Wander()
     {
 
-        Vector3 target1 = origin + wanderDirection * wanderDistance;
-        Vector3 target2 = origin - wanderDirection * wanderDistance;
-        //Quaternion changedire = Quaternion.Euler(0, 180, 0);
-       // Debug.Log(Vector3.Distance(this.transform.position, target1));
+       
         if (flag == 0)//朝1走
         {
-            //rigi.velocity = wanderDirection.normalized * walkspeed;
-            this.transform.Translate((wanderDirection) * walkspeed * Time.deltaTime, Space.World);
-            Quaternion quat = Quaternion.LookRotation(target1 - this.transform.position);
-            this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
-            Debug.Log(quat.eulerAngles);
-            if (Vector3.Distance(this.transform.position, target1) <=1f)
+            agent.NavAgent(target);
+            // //rigi.velocity = wanderDirection.normalized * walkspeed;
+            // this.transform.Translate((wanderDirection) * walkspeed * Time.deltaTime, Space.World);
+            // Quaternion quat = Quaternion.LookRotation(target1 - this.transform.position);
+            // this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            if (Vector3.Distance(this.transform.position, target) <= 0.1f)
             {
                 flag = 1;
             }
         }
         if (flag == 1)
         {
-            this.transform.Translate(-wanderDirection * walkspeed * Time.deltaTime, Space.World);
-            Quaternion quat = Quaternion.LookRotation(target2-this.transform.position);
-            Quaternion rota = Quaternion.Euler(0, 90, 0);
-            Debug.Log(quat.eulerAngles);
-            this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
-            Debug.Log(this.transform.rotation);
-            if (Vector3.Distance(this.transform.position, target2) <= 1f)
+            agent.NavAgent(origin);
+            // this.transform.Translate(-wanderDirection * walkspeed * Time.deltaTime, Space.World);
+            // Quaternion quat = Quaternion.LookRotation(target2 - this.transform.position);
+            // Quaternion rota = Quaternion.Euler(0, 90, 0);
+            // this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            if (Vector3.Distance(this.transform.position, origin) <= 0.1f)
             {
                 flag = 0;
             }
         }
     }
 
-    // Use this for initialization
-    void Start () {
-        player = GameObject.Find("Player").GetComponent<Transform>();
-        bullet=(GameObject)Resources.Load("Prefabs/EnemyBullet");
-        origin = this.transform.position;
-        rigi = this.GetComponent<Rigidbody>();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Health <= 0)
-            Die();
-        Alert();
-        timeval += Time.deltaTime;
-
-        if (AlertIsTrue)
-        {
-            Turning();
-            if (timeval >= Attackcd)
-            {
-                if (AlertIsTrue)
-                {
-                    Attack();
-                }
-            }
-        }
-        else
-        {
-            Wander();
-        }
-        
-	}
 
     void Turning()
     {
@@ -130,15 +131,17 @@ public class Alert1 : MonoBehaviour {
     
     void Attack()
     {
-        bulletrigi = Instantiate(bullet, this.transform.position+new Vector3(0,0.4f,0), Quaternion.identity).GetComponent<Rigidbody>();
-        Vector3 direction = player.position - this.transform.position;
-        direction.y = 0;
-        Debug.Log(bulletrigi);
-        bulletrigi.AddForce(direction.normalized * bulletSpeed);
-        //Debug.Log(direction);
-       // bulletrigi.velocity = direction.normalized * bulletSpeed;
-       // Debug.Log(bulletrigi.velocity);
-        timeval = 0;
+        if (timeval >= Attackcd)
+        {
+            bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, 0.4f, 0), Quaternion.identity).GetComponent<Rigidbody>();
+            Vector3 direction = player.position - this.transform.position;
+            direction.y = 0;
+            bulletrigi.AddForce(direction.normalized * bulletSpeed);
+            //Debug.Log(direction);
+            // bulletrigi.velocity = direction.normalized * bulletSpeed;
+            // Debug.Log(bulletrigi.velocity);
+            timeval = 0;
+        }
     }
 
     public void DecreaseHealth()
@@ -146,9 +149,35 @@ public class Alert1 : MonoBehaviour {
         Health -= 20;
     }
 
+    void Follow()
+    {
+        agent.NavAgent(player.position);
+        if ((this.transform.position - player.position).magnitude >= followDistance)
+        {
+            state = 2;
+        }
+    }
+
+    void Return()
+    {
+        float dis1 = (this.transform.position - origin).magnitude;
+        float dis2 = (this.transform.position - target).magnitude;
+        agent.NavAgent(dis1 < dis2 ? origin : target);
+        if ((this.transform.position - player.position).magnitude <= AlertRadius)
+        {
+            state = 1;
+            return;
+        }
+        else if((this.transform.position - origin).magnitude <= 0.5f|| (this.transform.position - target).magnitude<=0.5f)
+        {
+            state = 0;
+        }
+    }
 
     void Die()
     {
+        float dis = player.position.y - this.transform.position.y;
+        Instantiate(lightt, this.transform.position + new Vector3(0, dis, 0), Quaternion.identity);
         Destroy(this.gameObject);
     }
 
