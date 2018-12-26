@@ -223,7 +223,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Gear.cs" />
+    <Compile Include="Assets\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Boss1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\BounceBullet.cs" />
@@ -245,6 +245,7 @@
     <Compile Include="Assets\Scripts\FirstChapter\RandomThings.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\RedCube.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\SetMirrorCP.cs" />
+    <Compile Include="Assets\Scripts\Gear.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetDarklight.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetGood.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetLight.cs" />
@@ -255,6 +256,7 @@
     <Compile Include="Assets\Scripts\KnapsackSystem\Slot.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\Test1111.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\ToolTilePanel.cs" />
+    <Compile Include="Assets\Spin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
