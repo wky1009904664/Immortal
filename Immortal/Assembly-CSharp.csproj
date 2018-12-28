@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Boss1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\BounceBullet.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\Character\Enemy\NavRun.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Trip1.cs" />
     <Compile Include="Assets\Scripts\Character\Player\FirstPerson.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\mirrorPlayer.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerBullet.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerMovement.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Assets\Scripts\FirstChapter\RandomThings.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\RedCube.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\SetMirrorCP.cs" />
+    <Compile Include="Assets\Scripts\Gear.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetDarklight.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetGood.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetLight.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Assets\Scripts\KnapsackSystem\Slot.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\Test1111.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\ToolTilePanel.cs" />
+    <Compile Include="Assets\Spin.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/10099.000/Desktop/Immortal/Immortal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
