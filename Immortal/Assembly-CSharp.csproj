@@ -59,17 +59,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Character\PlayerBullet.cs" />
-    <Compile Include="Assets\Scripts\Character\PlayerMove.cs" />
-    <Compile Include="Assets\Scripts\Character\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\ComeIn.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Alert1.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Enemy2.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyBullet.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Trip1.cs" />
-    <Compile Include="Assets\Scripts\FirstPerson.cs" />
-    <Compile Include="Assets\Scripts\Flow.cs" />
-    <Compile Include="Assets\Scripts\flowTirgger.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\Boss1.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\BounceBullet.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\Enemy2.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\Enemy3.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\EnemyBullet.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\LineRen.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\NavRun.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\Trip1.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\FirstPerson.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\PlayerBullet.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\ComeIn.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\Cylinder.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\Flow.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\flowTirgger.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\MirrorPlane.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\RandomThings.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\RedCube.cs" />
+    <Compile Include="Assets\Scripts\FirstChapter\SetMirrorCP.cs" />
+    <Compile Include="Assets\Scripts\KnapsackSystem\GetDarklight.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetGood.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetLight.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GoodUI.cs" />
@@ -79,17 +90,11 @@
     <Compile Include="Assets\Scripts\KnapsackSystem\Slot.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\Test1111.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\ToolTilePanel.cs" />
-    <Compile Include="Assets\Scripts\MirrorPlane.cs" />
-    <Compile Include="Assets\Scripts\NormalBullet.cs" />
-    <Compile Include="Assets\Scripts\SetMirrorCP.cs" />
-    <Compile Include="Assets\Scripts\SwapCamera.cs" />
-    <Compile Include="Assets\Scripts\Test.cs" />
-    <Compile Include="Assets\Scripts\ThridPerson.cs" />
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/10099.000/Desktop/Immortal/Immortal/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/10099.000/Desktop/Immortal/Immortal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/Users/10099.000/Desktop/Immortal/Immortal/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -287,7 +292,7 @@
       <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="LitJson">
-      <HintPath>C:/Users/10099.000/Desktop/Immortal/Immortal/Assets/Plugins/LitJson.dll</HintPath>
+      <HintPath>C:/Users/10099.000/Desktop/Immortal/Immortal/Assets/Scripts/Plugins/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/10099.000/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

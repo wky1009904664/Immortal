@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     public int darkLight = 0;
     public float JumpHeight=1;
     public int Health=200;
+    public float JumpForce;
 
     public Transform outpoint;
     
@@ -49,7 +50,6 @@ public class PlayerMovement : MonoBehaviour {
             Die();
         timeval += Time.deltaTime;
         timeval2 += Time.deltaTime;
-        timeval3 += Time.deltaTime;
         if (Input.GetButton("Fire1"))
         {
             if (timeval >= shotcd)
@@ -67,15 +67,7 @@ public class PlayerMovement : MonoBehaviour {
                 timeval2 = 0;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("1");
-            if (timeval3 >= 1.0f)
-            {
-                this.GetComponent<Rigidbody>().AddForce(this.transform.up * JumpHeight);
-                timeval3 = 0;
-            }
-        }
+        
         ChangeSpeed();
 	}
 
@@ -102,6 +94,17 @@ public class PlayerMovement : MonoBehaviour {
         trans.Translate(0, hie - rb.position.y, 0,Space.World);
         //rb.MovePosition(new Vector3(rb.position.x,hie,rb.position.z));
         Turning();
+        
+        timeval3 += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("1");
+            if (timeval3 >= 1.0f)
+            {
+                this.GetComponent<Rigidbody>().AddForce(this.transform.up * JumpHeight);
+                timeval3 = 0;
+            }
+        }
     }
 
     void Move(float h,float v,float height)

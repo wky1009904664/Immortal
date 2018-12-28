@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 54982990343608456}
   - component: {fileID: 135644295424972292}
   - component: {fileID: 114856353669092152}
+  - component: {fileID: 114442172364399680}
+  - component: {fileID: 195594137992148086}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -715,6 +717,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &114442172364399680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123985870574816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dce6833f518050479ce23cebe44f942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114856353669092152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -728,13 +741,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AlertRadius: 6.65
   Alertangle: 360
-  AlertIsTrue: 0
   wanderDirection: {x: 0, y: 0, z: 1}
   wanderDistance: 18
   walkspeed: 3
   bulletSpeed: 1000
   Attackcd: 0.3
   turnspeed: 0.3
+  followDistance: 0
 --- !u!135 &135644295424972292
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -747,3 +760,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0.05, z: 0}
+--- !u!195 &195594137992148086
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123985870574816}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.08
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

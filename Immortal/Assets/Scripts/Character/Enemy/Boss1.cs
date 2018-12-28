@@ -40,7 +40,7 @@ public class Boss1 : MonoBehaviour
     {
         if (health <= 0)
             Die();
-                this.transform.Rotate(new Vector3(0, 1, 0), rotaSpeed * Time.deltaTime);
+        this.transform.Rotate(new Vector3(0, 1, 0), rotaSpeed * Time.deltaTime);
         switch (state)
         {
             case 0://旋转X + 圆形弹幕
