@@ -272,8 +272,6 @@ GameObject:
   - component: {fileID: 224388663}
   - component: {fileID: 224388662}
   - component: {fileID: 224388661}
-  - component: {fileID: 224388660}
-  - component: {fileID: 224388659}
   m_Layer: 0
   m_Name: Wall4
   m_TagString: Untagged
@@ -294,30 +292,6 @@ Transform:
   m_Father: {fileID: 1301863104}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
---- !u!65 &224388659
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 224388657}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &224388660
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 224388657}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &224388661
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -657,7 +631,6 @@ GameObject:
   - component: {fileID: 398640918}
   - component: {fileID: 398640917}
   - component: {fileID: 398640916}
-  - component: {fileID: 398640915}
   m_Layer: 0
   m_Name: Wall3
   m_TagString: Untagged
@@ -678,18 +651,6 @@ Transform:
   m_Father: {fileID: 1301863104}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 90}
---- !u!65 &398640915
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 398640913}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &398640916
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -793,7 +754,7 @@ Rigidbody:
   m_GameObject: {fileID: 475794815}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: Infinity
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -1355,7 +1316,6 @@ GameObject:
   - component: {fileID: 722977101}
   - component: {fileID: 722977100}
   - component: {fileID: 722977099}
-  - component: {fileID: 722977098}
   m_Layer: 0
   m_Name: Wall2
   m_TagString: Untagged
@@ -1376,18 +1336,6 @@ Transform:
   m_Father: {fileID: 1301863104}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!65 &722977098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 722977096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &722977099
 MeshCollider:
   m_ObjectHideFlags: 0

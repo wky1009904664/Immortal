@@ -20,7 +20,7 @@ public class Enemy2 : MonoBehaviour
     GameObject bullet;
     GameObject darkLight;
     Rigidbody bulletrigi;
-    float timeval = 0;
+    float timeval = 10;
     int count = 0;
 
 
