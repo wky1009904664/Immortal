@@ -27,7 +27,8 @@ public class Trip1 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+       // player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +37,7 @@ public class Trip1 : MonoBehaviour {
         if (timeval >= Attackcd)
         {
             Alert();
+            Debug.Log("1");
             timeval = 0;
         }
 	}
@@ -45,6 +47,7 @@ public class Trip1 : MonoBehaviour {
         Vector3 dis = player.position - this.transform.position;
         float distance = dis.magnitude;
         float disAngle = Vector3.Angle(dis, this.transform.forward);
+        Debug.Log(player);
         if (distance <= AlertRadius && disAngle <= Alertangle)
         {
             player.GetComponent<PlayerMovement>().DecreaseHealth();
