@@ -18,22 +18,29 @@ public class Boss1 : MonoBehaviour
     GameObject bullet;
     Rigidbody rigi;
     Rigidbody boss;
-    int health = 500;
+    public int health = 500;
     Vector3 leftup = new Vector3(-12, 0, 7);
     Vector3 leftbot = new Vector3(-12, 0, -7);
     Vector3 rightup = new Vector3(12, 0, 7);
     Vector3 rightbot = new Vector3(12, 0, -7);
     float distance = new Vector3(12, 0, 7).magnitude;
+    Vector3 origin;
+    GameObject door;
 
     LineRenderer gunLine;
     Ray shootRay;
     RaycastHit shootHit;
+    GameObject darkLight;
+    GameObject Lightt;
     // Use this for initialization
     void Start()
     {
         bullet = (GameObject)Resources.Load("Prefabs/bounceBullet");
         boss = this.GetComponent<Rigidbody>();
-       // gunLine = GetComponent<LineRenderer>();
+        door = (GameObject)Resources.Load("Prefabs/Door");
+        origin = this.transform.position;
+        darkLight = (GameObject)Resources.Load("Prefabs/DarkLight");
+        Lightt = (GameObject)Resources.Load("Prefabs/Light");
     }
     // Update is called once per frame
     void Update()
@@ -157,6 +164,9 @@ public class Boss1 : MonoBehaviour
 
     void Die()
     {
+        Instantiate(door, origin+new Vector3(3,0,3), Quaternion.identity);
+        Instantiate(darkLight, this.transform.position + new Vector3(0, -1.0f, 0), Quaternion.identity);
+        Instantiate(Lightt, this.transform.position + new Vector3(0.5f, -1.0f,0.5f), Quaternion.identity);
         Destroy(this.gameObject);
     }
 

@@ -29,7 +29,7 @@ public class Enemy2 : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
-        darkLight = (GameObject)Resources.Load("Prefabs/DarkLight");
+        darkLight = (GameObject)Resources.Load("Prefabs/Light");
     }
 
     // Update is called once per frame

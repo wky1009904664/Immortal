@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GetDarklight : MonoBehaviour {
 
     PlayerMovement player;
-    public int amount = 10;
-    Text text;
+    public int amount = 1;
+    public Text text;
     GameObject go;
     // Use this for initialization
     void Start()

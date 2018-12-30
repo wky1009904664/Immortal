@@ -13,22 +13,33 @@ public class Enemy3 : MonoBehaviour {
     Transform player;
     public float shotcd;
     public float walkSpeed;
-    int Health = 500;
-	// Use this for initialization
-	void Start () {
+    Vector3 origin;
+    GameObject door;
+    float time1;
+    public int Health = 500;
+    GameObject Lightt;
+    // Use this for initialization
+    void Start () {
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
-        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
+        door = (GameObject)Resources.Load("Prefabs/Door");
+        origin = this.transform.position;
+        Lightt = (GameObject)Resources.Load("Prefabs/Light");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Health == 0)
+        if (Health <= 0)
             Die();
         timeval += Time.deltaTime;
+        time1 += Time.deltaTime;
         this.transform.Rotate(new Vector3(0, 1, 0), rotaSpeed * Time.deltaTime);
-        if (timeval >= shotcd)
-            Attack();
-        Move();
+        if (time1 > 2.0f)
+        {
+            if (timeval >= shotcd)
+                Attack();
+            Move();
+        }
     }
 
     void Attack()
@@ -63,6 +74,8 @@ public class Enemy3 : MonoBehaviour {
     void Die()
     {
         float dis = player.position.y - this.transform.position.y;
+        Instantiate(door, origin + new Vector3(3, 0, 3), Quaternion.identity);
+        Instantiate(Lightt, this.transform.position + new Vector3(0, -1.0f, 0), Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

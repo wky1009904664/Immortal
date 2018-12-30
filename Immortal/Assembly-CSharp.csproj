@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\AppearDoor.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Boss1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\BounceBullet.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy2.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\Character\Player\PlayerBullet.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\ComeIn.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\Cylinder.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\Flow.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Assets\Scripts\KnapsackSystem\Slot.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\Test1111.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\ToolTilePanel.cs" />
+    <Compile Include="Assets\Scripts\RoomController.cs" />
     <Compile Include="Assets\Spin.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/10099.000/Desktop/Immortal/Immortal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

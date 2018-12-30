@@ -49,7 +49,7 @@ public class Alert1 : MonoBehaviour {
     void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();
         bullet=(GameObject)Resources.Load("Prefabs/EnemyBullet");
-        lightt = (GameObject)Resources.Load("Prefabs/Light");
+        lightt = (GameObject)Resources.Load("Prefabs/DarkLight");
         origin = this.transform.position;
         rigi = this.GetComponent<Rigidbody>();
          agent = this.GetComponent<NavRun>();

@@ -21,6 +21,9 @@ public class Gear : MonoBehaviour {
     private GameObject yellowK;
     private GameObject blueK;
     public GameObject panel;
+    private Transform player;
+    RoomController room;
+    GameObject room3;
 
     // Use this for initialization
     void Start () {
@@ -34,6 +37,8 @@ public class Gear : MonoBehaviour {
         redK = GameObject.Find("redK");
         yellowK = GameObject.Find("yellowK");
         blueK = GameObject.Find("blueK");
+        player = GameObject.Find("Player").GetComponent<Transform>();
+        room = GameObject.Find("RoomController").GetComponent<RoomController>();
     }
 	
 	void Update () {
@@ -69,6 +74,7 @@ public class Gear : MonoBehaviour {
         if (!red && !yellow && !blue)
         {
             Camera.main.GetComponent<CameraMove>().Move1();
+            player.position = new Vector3(63, 0.82f, -20);
             Destroy(this);
         }
     }

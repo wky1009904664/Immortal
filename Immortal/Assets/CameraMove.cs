@@ -6,7 +6,7 @@ public class CameraMove : MonoBehaviour {
 
     public float speed=0f;
     private bool move1 = false;
-    private bool dec = false;
+    public bool dec = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +16,7 @@ public class CameraMove : MonoBehaviour {
     public void Move1()
     {
         move1 = true;
+        
         transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime);
 
         if (speed < 0) move1 = false;

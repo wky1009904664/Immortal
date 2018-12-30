@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GetLight : MonoBehaviour {
 
     PlayerMovement player;
-    public int amount = 10;
+    public int amount = 1;
     Text text;
     GameObject go;
 	// Use this for initialization
