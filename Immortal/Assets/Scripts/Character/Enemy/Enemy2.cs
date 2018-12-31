@@ -15,7 +15,7 @@ public class Enemy2 : MonoBehaviour
     public float bulletSpeed;
 
     bool AlertIsTrue;
-    int Health=1000;
+    public int Health=1000;
     Transform player;
     GameObject bullet;
     GameObject darkLight;
@@ -27,7 +27,7 @@ public class Enemy2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
         darkLight = (GameObject)Resources.Load("Prefabs/Light");
     }
@@ -90,6 +90,7 @@ public class Enemy2 : MonoBehaviour
 
     public void DecreaseHealth( )
     {
+        Debug.Log("1");
         Health -= 20;
     }
 

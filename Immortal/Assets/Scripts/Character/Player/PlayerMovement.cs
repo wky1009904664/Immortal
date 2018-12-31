@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
     public float JumpHeight=1;
     public int Health=200;
     public float JumpForce;
-
+    public GameObject DeathImage;
     public Transform outpoint;
     
     Rigidbody bulletrb;
@@ -173,6 +173,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Die()
     {
+        DeathImage.SetActive(true);
         Destroy(this.gameObject);
     }
 

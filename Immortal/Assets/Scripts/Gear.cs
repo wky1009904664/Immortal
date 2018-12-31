@@ -71,7 +71,7 @@ public class Gear : MonoBehaviour {
             else panel.GetComponent<Image>().color = new Color(color.r, color.g, color.b, Mathf.Lerp(0.7f, 0, balpha));
         }
 
-        if (red && yellow && blue)
+        if (!red && !yellow && !blue)
         {
             Camera.main.GetComponent<CameraMove>().Move1();
             player.position = new Vector3(63, 0.82f, -20);
