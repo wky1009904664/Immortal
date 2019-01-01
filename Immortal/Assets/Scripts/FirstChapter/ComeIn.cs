@@ -9,7 +9,8 @@ public class ComeIn : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(1);
+		SceneManager.LoadScene (2);
+     // SceneManager.LoadScene(3);
     }
 
     void Start () {
