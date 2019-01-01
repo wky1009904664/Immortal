@@ -51,7 +51,7 @@ public class Enemy3 : MonoBehaviour {
             direction = Quaternion.Euler(0, 360 / shotAmount, 0) * direction;
            // for (int j = 0; j < 4; j++)
            // {
-                bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, 0.4f, 0) + direction.normalized, Quaternion.identity).GetComponent<Rigidbody>();
+                bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, -0.8f, 0) + direction.normalized, Quaternion.identity).GetComponent<Rigidbody>();
                 bulletrigi.AddForce(direction.normalized * bulletSpeed);
           //  }
         }
