@@ -1,0 +1,66 @@
+[
+  {
+    "goodProperty": {
+      "ID": 1,
+      "name": "qiu",
+      "description": "\u8fd9\u662f\u7403\u000d\u000a",//球
+      "sprite": "UI/Good (1)",
+      "canbeused": 1
+    }
+  },
+  {
+    "goodProperty": {
+      "ID": 2,
+      "name": "zhegnfangti",
+      "description": "\u8fd9\u662f\u6b63\u65b9\u4f53\u000d\u000a",//正方体
+      "sprite": "UI/Good (17)",
+      "canbeused": 1
+    }
+  },
+  {
+    "goodProperty": {
+      "ID": 3,
+      "name": "Wing",
+      "description": "\u8fd9\u662f\u957f\u65b9\u4f53",//长方体
+      "sprite": "UI/Good (2)",
+      "canbeused": 0
+    }
+
+  },
+  {
+    "goodProperty": {
+      "ID": 4,
+      "name": "King",
+      "description": "\u8fd9\u662f\u80f6\u56ca", //胶囊
+      "sprite": "UI/Good (3)",
+      "canbeused": 1
+    }
+  },
+  {
+    "goodProperty": {
+      "ID": 5,
+      "name": "TUBG",
+      "description": "这是5",
+      "sprite": "UI/Good (4)",
+      "canbeused": 1
+    }
+  },
+  {
+    "goodProperty": {
+      "ID": 6,
+      "name": "sfsf",
+      "description": "这是6",
+      "sprite": "UI/Good (5)",
+      "canbeused": 1
+    }
+  },
+  {
+    "goodProperty": {
+      "ID": 7,
+      "name": "tyeht",
+      "description": "这是7",
+      "sprite": "UI/Good (6)",
+      "canbeused": 1
+    }
+  }
+]
