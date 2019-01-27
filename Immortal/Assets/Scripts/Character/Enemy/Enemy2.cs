@@ -76,7 +76,7 @@ public class Enemy2 : MonoBehaviour
         for (int i = 0; i < shotAmount; i++)
         {
             direction = Quaternion.Euler(0, 360 / shotAmount, 0) * direction;
-            if (i % 5 == 0)
+            if (i % 5 == 0||i%4==0)
                 continue;
             for (int j = 0; j < 4; j++)
             {
@@ -90,7 +90,6 @@ public class Enemy2 : MonoBehaviour
 
     public void DecreaseHealth( )
     {
-        Debug.Log("1");
         Health -= 20;
     }
 

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Wall
+  - Floor
+  - Barrier
   layers:
   - Default
   - TransparentFX
