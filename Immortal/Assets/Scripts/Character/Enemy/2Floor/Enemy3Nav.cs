@@ -18,4 +18,9 @@ public class Enemy3Nav : MonoBehaviour {
     void Update () {
         agent.SetDestination(player.position);
 	}
+
+    public void CHangePosition()
+    {
+        this.transform.position = player.position -new Vector3(0.5f, 0, 0.5f);
+    }
 }

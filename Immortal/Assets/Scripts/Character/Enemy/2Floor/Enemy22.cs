@@ -36,7 +36,7 @@ public class Enemy22 : MonoBehaviour {
         timeval += Time.deltaTime;
         if (timeval <= uptime)
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, up+new Vector3(0, 1, 0), Time.deltaTime*speed);
+            this.transform.position = Vector3.Lerp(this.transform.position, up+new Vector3(0, 0.5f, 0), Time.deltaTime*speed);
         }
         else if (timeval <= uptime + 1)
         {
@@ -45,7 +45,7 @@ public class Enemy22 : MonoBehaviour {
         }
         else if (timeval <= 2 * uptime + 1)
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, down + new Vector3(0, -1.2f, 0), Time.deltaTime * speed);
+            this.transform.position = Vector3.Lerp(this.transform.position, down + new Vector3(0, -2f, 0), Time.deltaTime * speed);
         }
         else if(timeval>=2*uptime+2)
         {

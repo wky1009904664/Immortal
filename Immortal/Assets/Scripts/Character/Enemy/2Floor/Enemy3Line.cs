@@ -11,6 +11,7 @@ public class Enemy3Line : MonoBehaviour {
     public float timeval = 0;
     float Attackcd = 0.5f;
     float attackTimeval = 0;
+    
 
     public float shotcd;
     public float locktime;
@@ -37,13 +38,13 @@ public class Enemy3Line : MonoBehaviour {
         {
             timeval = 0;
             gunLine.enabled = true;
+            target.GetComponent<Enemy3Nav>().CHangePosition();
         }
 	}
 
     void LineShot()
     {
         Vector3 dis = target.transform.position - this.transform.position;
-        Debug.Log(dis);
         gunLine.SetPosition(0, transform.position);
         shootRay.origin = transform.position;
         shootRay.direction = dis.normalized;
