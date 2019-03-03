@@ -5,20 +5,22 @@ using UnityEngine;
 public class Enemy3Line : MonoBehaviour {
 
     LineRenderer gunLine;
+    LineRenderer gunLine2;
     Ray shootRay;
     RaycastHit shootHit;
     Transform target;
-    public float timeval = 0;
+    float timeval = 0;
     float Attackcd = 0.5f;
     float attackTimeval = 0;
-    
 
-    public float shotcd;
-    public float locktime;
+    float alertTime = 1.5f;
+    float shotcd = 5.0f;
+    float locktime =4;
 
     // Use this for initialization
     void Start () {
         target = this.transform.GetChild(0).transform;
+        gunLine2 = this.transform.GetChild(1).GetComponent<LineRenderer>();
         gunLine = GetComponent<LineRenderer>();
     }
 
@@ -26,8 +28,19 @@ public class Enemy3Line : MonoBehaviour {
     void Update () {
         timeval += Time.deltaTime;
         attackTimeval += Time.deltaTime;
-        if (timeval <= locktime && timeval >= 0)
+        if (timeval <= alertTime-0.5f && timeval >= 0)
         {
+            gunLine2.enabled = true;
+            LineAlert();
+        }
+        else if (timeval <= alertTime)
+        {
+            gunLine2.enabled = false;
+        }
+        else if (timeval >= 0 && timeval <= locktime)
+        {
+            gunLine2.enabled = false;
+            gunLine.enabled = true;
             LineShot();
         }
         else if (timeval <= shotcd && timeval >= 0)
@@ -37,7 +50,6 @@ public class Enemy3Line : MonoBehaviour {
         else if (timeval >= shotcd)
         {
             timeval = 0;
-            gunLine.enabled = true;
             target.GetComponent<Enemy3Nav>().CHangePosition();
         }
 	}
@@ -63,6 +75,27 @@ public class Enemy3Line : MonoBehaviour {
             else
             {
                 gunLine.SetPosition(1, shootHit.point);
+            }
+        }
+    }
+
+    void LineAlert()
+    {
+
+        Vector3 dis = target.transform.position - this.transform.position;
+        gunLine2.SetPosition(0, transform.position);
+        shootRay.origin = transform.position;
+        shootRay.direction = dis.normalized;
+        if (Physics.Raycast(shootRay, out shootHit, 100))
+        {
+            PlayerMovement player = shootHit.collider.GetComponent<PlayerMovement>();
+            if (player != null)
+            {
+                gunLine2.SetPosition(1, shootHit.point);
+            }
+            else
+            {
+                gunLine2.SetPosition(1, shootHit.point);
             }
         }
     }

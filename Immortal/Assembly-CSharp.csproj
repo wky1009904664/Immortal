@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\Enemy11.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\Enemy22.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\Enemy3Line.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\2Floor\Enemy3LineAlert.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\Enemy3Nav.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\F2Start.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\MoonBack.cs" />

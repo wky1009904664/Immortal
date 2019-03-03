@@ -12,6 +12,7 @@ public class Enemy3Nav : MonoBehaviour {
     void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();
         agent = this.GetComponent<NavMeshAgent>();
+        CHangePosition();
     }
 
     // Update is called once per frame
@@ -21,6 +22,11 @@ public class Enemy3Nav : MonoBehaviour {
 
     public void CHangePosition()
     {
-        this.transform.position = player.position -new Vector3(0.5f, 0, 0.5f);
+        float x = Random.Range(-50, 50) / 100.0f;
+        float y = 0;
+        float z = Random.Range(-50, 50) / 100.0f;
+        this.transform.position = player.position + new Vector3(x, y, z);
     }
+
+
 }

@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour {
             if (Physics.Raycast(camRay, out floorHit, camRayLength))//这里的camray代表距离和方向
             {
                 Vector3 playerToMouse = floorHit.point - this.transform.position;
-               // playerToMouse.y = 0;
+                playerToMouse.y = 0;
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
                 rb.MoveRotation(newRotation);
                 return true;
