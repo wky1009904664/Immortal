@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\F2Start.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\MoonBack.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\Rooms2.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\4Floor\Enemy41.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\AppearDoor.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Boss1.cs" />

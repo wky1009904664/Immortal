@@ -13,6 +13,8 @@ public class F2Start : MonoBehaviour {
     public float speed =10;
     Transform moon1;
     Transform moon2;
+    Transform targetrans;
+    Vector3 targetpos;
     bool ismoon1 = false;
     bool ismoon2 = false;
 
@@ -66,19 +68,31 @@ public class F2Start : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Barrier")
+        {
             isjump = false;
+            if (state == 0)
+            {
+                targetrans = collision.transform.parent.GetChild(0).GetComponent<Transform>();
+                targetpos = targetrans.position - new Vector3(0, 1.5f, 0);
+            }
+            if (state == 1)
+            {
+                targetrans = collision.transform.parent.GetChild(1).GetComponent<Transform>();
+                targetpos = targetrans.position + new Vector3(0, 1.5f, 0);
+            }
+        }
         if (collision.collider.tag == "Floor")
         {
             state = state == 0 ? 1 : 0;
             if (state == 0)
             {
                 Physics.gravity = new Vector3(0, -10, 0);
-                transform.position = new Vector3(6.19f, 2.6f, -13.44f);
+                transform.position = targetpos;
             }
             else
             {
                 Physics.gravity = new Vector3(0, 10, 0);
-                transform.position = new Vector3(7.98f, 17 , -14);
+                transform.position = targetpos;
             }
         }
     }
