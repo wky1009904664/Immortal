@@ -22,7 +22,9 @@ public class Enemy2 : MonoBehaviour
     Rigidbody bulletrigi;
     float timeval = 10;
     int count = 0;
-
+    AudioSource audioSource;
+    AudioClip EnemyShotEffect;
+    AudioClip EnemyDie;
 
     // Use this for initialization
     void Start()
@@ -84,7 +86,7 @@ public class Enemy2 : MonoBehaviour
                 bulletrigi.AddForce(direction.normalized * bulletSpeed);
             }
         }
-
+        audioSource.PlayOneShot(EnemyShotEffect);
         timeval = 0;
     }
 
@@ -96,6 +98,7 @@ public class Enemy2 : MonoBehaviour
 
     void Die()
     {
+        audioSource.PlayOneShot(EnemyDie);
         float dis = player.position.y - this.transform.position.y;
         Instantiate(darkLight,this.transform.position + new Vector3(0, dis, 0), Quaternion.identity);
         Destroy(this.gameObject);

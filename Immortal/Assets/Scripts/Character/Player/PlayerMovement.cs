@@ -32,7 +32,9 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 incr;
     Vector3 movement;
     Vector3 rayOrigin;
-
+    AudioSource audioSource;
+    AudioClip PlayerShot;
+    AudioClip PlayerHurt;
 
     // Use this for initialization
     void Start () {
@@ -41,6 +43,9 @@ public class PlayerMovement : MonoBehaviour {
         UIMask = LayerMask.GetMask("KnapsackCanvasSystem");
         rb = GetComponent<Rigidbody>();
         bullet = (GameObject)Resources.Load("Prefabs/PlayerBullet");
+        audioSource = this.GetComponent<AudioSource>();
+        PlayerShot = (AudioClip)Resources.Load("Music/PlayerBullet");
+        PlayerHurt = (AudioClip)Resources.Load("Music/BulletHurtLine");
         trans = GetComponent<Transform>();
     }
 	
@@ -142,6 +147,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         Rigidbody bulltrans= Instantiate(bullet, this.transform.position, outpoint.rotation).GetComponent<Rigidbody>();
         bulltrans.AddForce(outpoint.forward.normalized * bulletForce);
+        audioSource.PlayOneShot(PlayerShot);
        //bulletrb = bullet.GetComponent<Rigidbody>();
        //bulletrb.AddForce(outpoint.forward.normalized*bulletForce);
        //Debug.Log(outpoint.forward.normalized * bulletForce);
@@ -168,6 +174,7 @@ public class PlayerMovement : MonoBehaviour {
    public void DecreaseHealth(int n=30)
     {
         Health -= n;
+        audioSource.PlayOneShot(PlayerHurt);
     }
 
 

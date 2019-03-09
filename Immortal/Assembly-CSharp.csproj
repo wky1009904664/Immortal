@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\F2Start.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\MoonBack.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\2Floor\Rooms2.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\4Floor\Boss4.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\4Floor\Enemy41.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Alert1.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\AppearDoor.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Scripts\Character\Player\PlayerBullet.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\DiedEffect.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\ComeIn.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\Cylinder.cs" />

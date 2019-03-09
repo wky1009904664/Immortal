@@ -12,7 +12,10 @@ public class Enemy22 : MonoBehaviour {
     bool shotted=false;
     Vector3 down;
     Vector3 up;
-    
+    AudioSource audioSource;
+    AudioClip EnemyShotEffect;
+    AudioClip EnemyDie;
+
     //-1.33  0.9
     public float uptime=2.0f;//上浮时间
     public int Health = 100;
@@ -66,6 +69,7 @@ public class Enemy22 : MonoBehaviour {
         }
         timeval = 0;
         shotted = true;
+        audioSource.PlayOneShot(EnemyShotEffect);
     }
 
     public void DecreaseHealth()
@@ -75,6 +79,7 @@ public class Enemy22 : MonoBehaviour {
 
     void Die()
     {
+        audioSource.PlayOneShot(EnemyDie);
         Destroy(this.gameObject);
     }
 

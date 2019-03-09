@@ -8,11 +8,14 @@ public class Enemy41 : MonoBehaviour
     float timeval = 1f;
     public int Health = 100;
     public float rotspeed = 2;//旋转角速度
-
+    GameObject DieEffect;
+    Transform dieEffect;
+    public Transform target;
+    public float diespeed = 100;
     // Use this for initialization
     void Start()
     {
-
+        DieEffect = (GameObject)Resources.Load("DiedEffect");
     }
 
     // Update is called once per frame
@@ -31,6 +34,10 @@ public class Enemy41 : MonoBehaviour
 
     void Die()
     {
+        dieEffect = Instantiate(DieEffect, this.transform.position, Quaternion.identity).transform;
+        dieEffect.LookAt(target);
+        dieEffect.Rotate(new Vector3(0, 0, -90), Space.Self);
+        dieEffect.GetComponent<Rigidbody>().velocity = dieEffect.transform.forward.normalized * diespeed;
         Destroy(this.gameObject);
     }
 

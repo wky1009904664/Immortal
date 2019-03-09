@@ -28,7 +28,7 @@ public class Enemy3Line : MonoBehaviour {
     void Update () {
         timeval += Time.deltaTime;
         attackTimeval += Time.deltaTime;
-        if (timeval <= alertTime-0.5f && timeval >= 0)
+        if (timeval <= alertTime-0.8f && timeval >= 0)
         {
             gunLine2.enabled = true;
             LineAlert();

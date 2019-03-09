@@ -11,6 +11,9 @@ public class Enemy11 : MonoBehaviour {
     GameObject bullet;
     NavMeshAgent agent;
     Transform player;
+    AudioSource audioSource;
+    AudioClip EnemyShotEffect;
+    AudioClip EnemyDie;
 
     public int Health=100;
     public float Attackcd = 0.3f;
@@ -22,6 +25,9 @@ public class Enemy11 : MonoBehaviour {
         dire = this.transform.forward;
         agent = this.GetComponent<NavMeshAgent>();
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
+        audioSource = this.GetComponent<AudioSource>();
+        EnemyShotEffect = (AudioClip)Resources.Load("Music/EnemyBullet");
+        EnemyDie = (AudioClip)Resources.Load("Music/EnemyDie");
     }
 	
 	// Update is called once per frame
@@ -42,6 +48,7 @@ public class Enemy11 : MonoBehaviour {
         bulletrigi.AddForce(dire.normalized * bulletSpeed);
         dire = Quaternion.Euler(0, 30, 0) * dire;
         timeval = 0;
+        audioSource.PlayOneShot(EnemyShotEffect);
     }
 
     public void DecreaseHealth()
@@ -51,6 +58,7 @@ public class Enemy11 : MonoBehaviour {
 
     void Die()
     {
-        Destroy(this.gameObject);
+        audioSource.PlayOneShot(EnemyDie);
+        Destroy(this.gameObject,0.5f);
     }
 }
