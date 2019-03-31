@@ -29,6 +29,8 @@ public class Enemy2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
+        EnemyShotEffect = (AudioClip)Resources.Load("Music/EnemyBullet");
         player = GameObject.Find("Player").GetComponent<Transform>();
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
         darkLight = (GameObject)Resources.Load("Prefabs/Light");

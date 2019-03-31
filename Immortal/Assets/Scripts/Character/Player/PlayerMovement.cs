@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     float normalspeed = 9.0f;
     float highspeed=13.0f;
     float camRayLength = 100f;
-    float bulletForce = 1000;
+    float bulletForce = 2000;
     int floorMask;
     int ladderMask;
     int UIMask;
@@ -59,9 +59,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (timeval >= shotcd)
             {
-               if(Turning())
-               Attack(bullet);
-                timeval = 0;
+                if (Turning())
+                    Attack(bullet);
+                
             }
         }
         if (Input.GetKeyDown(KeyCode.B))
@@ -148,6 +148,7 @@ public class PlayerMovement : MonoBehaviour {
         Rigidbody bulltrans= Instantiate(bullet, this.transform.position, outpoint.rotation).GetComponent<Rigidbody>();
         bulltrans.AddForce(outpoint.forward.normalized * bulletForce);
         audioSource.PlayOneShot(PlayerShot);
+        timeval = 0;
        //bulletrb = bullet.GetComponent<Rigidbody>();
        //bulletrb.AddForce(outpoint.forward.normalized*bulletForce);
        //Debug.Log(outpoint.forward.normalized * bulletForce);

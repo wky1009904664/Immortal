@@ -5,22 +5,23 @@ using UnityEngine;
 public class RoomController : MonoBehaviour {
 
     public int state = 0;
-    private Transform player;
-    GameObject room1;
-    GameObject room2;
-    GameObject room3;
-    GameObject room4;
-    GameObject room5;
-    GameObject bossroom;
+    public Transform player;
+    public GameObject room1;
+    public GameObject room2;
+    public GameObject room3;
+    public GameObject room4;
+    public GameObject room5;
+    public GameObject bossroom;
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();
-        room1 = this.transform.Find("room1").gameObject;
+        //room1 = this.transform.Find("room1").gameObject;
         room2 = this.transform.Find("room2").gameObject;
         room3 = this.transform.Find("room3").gameObject;
         room4 = this.transform.Find("room4").gameObject;
         room5 = this.transform.Find("room5").gameObject;
         bossroom = this.transform.Find("Bossroom").gameObject;
+        
     }
 	
 	// Update is called once per frame

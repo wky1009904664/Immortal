@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Barrier
   - DiedEffect
+  - briBox
   layers:
   - Default
   - TransparentFX

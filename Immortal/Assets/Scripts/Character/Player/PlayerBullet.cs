@@ -11,8 +11,14 @@ public class PlayerBullet : MonoBehaviour {
     {
         if (other.tag == "Enemy")
             other.SendMessage("DecreaseHealth");
+        if (other.tag == "briBox")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
         if (other.tag != "Player")
             Destroy(this.gameObject);
+     
     }
 
     // Use this for initialization
