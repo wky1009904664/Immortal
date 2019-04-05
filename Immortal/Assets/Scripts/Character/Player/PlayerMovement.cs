@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     float normalspeed = 9.0f;
     float highspeed=13.0f;
     float camRayLength = 100f;
-    float bulletForce = 2000;
+    float bulletForce = 1000;
     int floorMask;
     int ladderMask;
     int UIMask;
@@ -36,8 +36,13 @@ public class PlayerMovement : MonoBehaviour {
     AudioClip PlayerShot;
     AudioClip PlayerHurt;
 
+    public GameObject myBall;
+    public Gear31 gear31;
+    private int Joker;
+
     // Use this for initialization
     void Start () {
+        Joker = 0;
         floorMask = LayerMask.GetMask("Floor");
         ladderMask = LayerMask.GetMask("Ladder");
         UIMask = LayerMask.GetMask("KnapsackCanvasSystem");
@@ -49,6 +54,103 @@ public class PlayerMovement : MonoBehaviour {
         trans = GetComponent<Transform>();
     }
 	
+    public void ChangeBall(int Joker)
+    {
+        this.Joker += Joker;
+        switch (this.Joker)
+        {
+            case 1:
+            case 2:
+                myBall.GetComponent<Renderer>().material.color = Color.red;
+                break;
+
+            case 10:
+            case 20:
+                myBall.GetComponent<Renderer>().material.color = Color.green;
+                break;
+
+            case 100:
+            case 200:
+                myBall.GetComponent<Renderer>().material.color = Color.blue;
+                break;
+
+            case 11:
+            case 12:
+            case 21:
+            case 22:
+                myBall.GetComponent<Renderer>().material.color = Color.yellow;
+                break;
+
+            case 110:
+            case 120:
+            case 210:
+            case 220:
+                myBall.GetComponent<Renderer>().material.color = Color.cyan;
+                break;
+
+            case 101:
+            case 102:
+            case 201:
+            case 202:
+                myBall.GetComponent<Renderer>().material.color = Color.magenta;
+                break;
+            default:
+                myBall.GetComponent<Renderer>().material.color = Color.white;
+                break;
+        }
+        myBall.SetActive(true);
+    }
+
+    private void putBall()
+    {
+        switch (Joker)
+        {
+            case 1:
+            case 2:
+                Instantiate(Resources.Load("Prefabs/ColorBalls/red"), this.transform.position, Quaternion.identity);
+                gear31.triggerGear("red", this.transform);
+                break;
+
+            case 10:
+            case 20:
+                Instantiate(Resources.Load("Prefabs/ColorBalls/green"), this.transform.position, Quaternion.identity);
+                break;
+
+            case 100:
+            case 200:
+                Instantiate(Resources.Load("Prefabs/ColorBalls/blue"), this.transform.position, Quaternion.identity);
+                break;
+
+            case 11:
+            case 12:
+            case 21:
+            case 22:
+                Instantiate(Resources.Load("Prefabs/ColorBalls/yellow"), this.transform.position, Quaternion.identity);
+                gear31.triggerGear("yellow", this.transform);
+                break;
+
+            case 110:
+            case 120:
+            case 210:
+            case 220:
+                Instantiate(Resources.Load("Prefabs/ColorBalls/cyan"), this.transform.position, Quaternion.identity);
+                gear31.triggerGear("cyan", this.transform);
+                break;
+
+            case 101:
+            case 102:
+            case 201:
+            case 202:
+                Instantiate(Resources.Load("Prefabs/ColorBalls/magenta"), this.transform.position, Quaternion.identity);
+                break;
+            default:
+                Instantiate(Resources.Load("Prefabs/ColorBalls/white"), this.transform.position, Quaternion.identity);
+                break;
+        }
+        myBall.SetActive(false);
+        Joker = 0;
+    }
+
 	// Update is called once per frame
 	void Update () {
         if (Health <= 0)
@@ -59,9 +161,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (timeval >= shotcd)
             {
-                if (Turning())
-                    Attack(bullet);
-                
+               if(Turning())
+               Attack(bullet);
+                timeval = 0;
             }
         }
         if (Input.GetKeyDown(KeyCode.B))
@@ -72,7 +174,12 @@ public class PlayerMovement : MonoBehaviour {
                 timeval2 = 0;
             }
         }
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            putBall();
+           
+        }
+
         ChangeSpeed();
 	}
 
@@ -148,7 +255,6 @@ public class PlayerMovement : MonoBehaviour {
         Rigidbody bulltrans= Instantiate(bullet, this.transform.position, outpoint.rotation).GetComponent<Rigidbody>();
         bulltrans.AddForce(outpoint.forward.normalized * bulletForce);
         audioSource.PlayOneShot(PlayerShot);
-        timeval = 0;
        //bulletrb = bullet.GetComponent<Rigidbody>();
        //bulletrb.AddForce(outpoint.forward.normalized*bulletForce);
        //Debug.Log(outpoint.forward.normalized * bulletForce);

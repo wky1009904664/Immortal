@@ -7,6 +7,7 @@ using System.IO;
 public class KnapsackManager : MonoBehaviour {
 
     private static KnapsackManager _instance;
+
     public static KnapsackManager GetInstance
     {
         get

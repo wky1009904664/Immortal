@@ -7,10 +7,7 @@ public class mirrorPlayer: MonoBehaviour
 
     float speed;
     float timeval = 1;
-    float timeval2 = 1;
     float timeval3 = 1;
-    public float shotcd = 0.1f;
-    public float clearcd = 5.0f;
     float normalspeed = 9.0f;
     float highspeed = 13.0f;
     float camRayLength = 100f;
@@ -24,7 +21,7 @@ public class mirrorPlayer: MonoBehaviour
     public float JumpHeight = 1;
     public int Health = 200;
 
-    public Transform outpoint;
+    public PlayerMovement pmt;
 
     Rigidbody bulletrb;
     Rigidbody rb;
@@ -50,25 +47,8 @@ public class mirrorPlayer: MonoBehaviour
     {
         if (Health <= 0)   Die();
         timeval += Time.deltaTime;
-        timeval2 += Time.deltaTime;
         timeval3 += Time.deltaTime;
-        if (Input.GetButton("Fire1"))
-        {
-            if (timeval >= shotcd)
-            {
-                if (Turning())
-                    Attack(bullet);
-                timeval = 0;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            if (timeval2 >= clearcd)
-            {
-                ClearScreen();
-                timeval2 = 0;
-            }
-        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("1");
@@ -79,6 +59,25 @@ public class mirrorPlayer: MonoBehaviour
             }
         }
         ChangeSpeed();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "red"|| collision.gameObject.name == "red(Clone)")
+        {
+            Destroy(collision.gameObject);
+            pmt.ChangeBall(1);
+        }
+        if (collision.gameObject.name == "green" || collision.gameObject.name == "green(Clone)")
+        {
+            Destroy(collision.gameObject);
+            pmt.ChangeBall(10);
+        }
+        else if (collision.gameObject.name == "blue" || collision.gameObject.name == "blue(Clone)")
+        {
+            Destroy(collision.gameObject);
+            pmt.ChangeBall(100);
+        }
     }
 
     private void FixedUpdate()
@@ -96,7 +95,6 @@ public class mirrorPlayer: MonoBehaviour
 
         }
 
-        //trans.Translate(new Vector3(h, 0, v).normalized * speed * Time.deltaTime,Space.World);
         float hie = 0;
 
         hie = 1.05f + hit.point.y - 0.1f;
@@ -135,11 +133,7 @@ public class mirrorPlayer: MonoBehaviour
             return false;
     }
 
-    void Attack(GameObject bullet)
-    {
-       // Rigidbody bulltrans = Instantiate(bullet, this.transform.position, outpoint.rotation).GetComponent<Rigidbody>();
-      //  bulltrans.AddForce(outpoint.forward.normalized * bulletForce);
-    }
+
 
     void ChangeSpeed()
     {
@@ -159,12 +153,4 @@ public class mirrorPlayer: MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void ClearScreen()
-    {
-        var bullets = GameObject.FindGameObjectsWithTag("Bullet");
-        foreach (var bullet in bullets)
-        {
-            Destroy(bullet);
-        }
-    }
 }

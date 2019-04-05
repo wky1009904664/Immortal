@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour {
     private float timer;
     public float distance;
+
     private void OnTriggerEnter(Collider other)
     {
+       // print(other.tag);
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerMovement>().DecreaseHealth(30);

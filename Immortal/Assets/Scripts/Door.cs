@@ -13,8 +13,7 @@ public class Door : MonoBehaviour {
             room.state++;
            
             room.ChangeRoom();
-            Debug.Log("1");
-            Destroy(this.gameObject);
+            Destroy(this.gameObject,3);
         }
     }
 
