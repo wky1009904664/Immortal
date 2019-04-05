@@ -51,6 +51,11 @@ public class Enemy11 : MonoBehaviour {
         audioSource.PlayOneShot(EnemyShotEffect);
     }
 
+    private void Move()
+    {
+        
+    }
+
     public void DecreaseHealth()
     {
         Health -= 20;

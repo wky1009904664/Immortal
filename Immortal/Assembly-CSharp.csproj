@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\FirstChapter\RandomThings.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\RedCube.cs" />
     <Compile Include="Assets\Scripts\FirstChapter\SetMirrorCP.cs" />
+    <Compile Include="Assets\Scripts\GameController\Camera2.cs" />
     <Compile Include="Assets\Scripts\GameController\Doorm.cs" />
     <Compile Include="Assets\Scripts\GameController\F1Creater.cs" />
     <Compile Include="Assets\Scripts\Gear.cs" />
