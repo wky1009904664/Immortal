@@ -28,8 +28,7 @@ public class CreatePrefabs
         {
             
 
-           // PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/Rooms/" + aaaa[i].name + ".prefab" +
-           //     "", aaaa[i].gameObject);
+          PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/Rooms/" + aaaa[i].name + ".prefab" +"", aaaa[i].gameObject);
         
         }
     }
