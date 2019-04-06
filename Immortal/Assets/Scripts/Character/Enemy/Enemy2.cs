@@ -57,6 +57,7 @@ public class Enemy2 : MonoBehaviour
 
     void Alert()
     {
+
         Vector3 dis = player.position - this.transform.position;
         float distance = dis.magnitude;
         float disAngle = Vector3.Angle(dis, this.transform.forward);

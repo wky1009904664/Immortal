@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\AddEnemy.cs" />
     <Compile Include="Assets\Editor\CreatePrefabs.cs" />
     <Compile Include="Assets\Editor\DeleteDoor.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
