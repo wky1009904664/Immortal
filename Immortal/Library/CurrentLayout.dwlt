@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 887, y: 498}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 11
+  controlID: 197
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 685, y: 498}
   m_MaxSize: {x: 14006, y: 14048}
   vertical: 0
-  controlID: 12
+  controlID: 198
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 498}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
-  controlID: 109
+  controlID: 126
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 224}
   m_MaxSize: {x: 8008, y: 4024}
   vertical: 0
-  controlID: 63
+  controlID: 127
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -353,9 +353,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: f656fbff0cccfbff882dfcff3cb8fcfff0bafcff00d4fcffbe48fdff7050feff2e70ffffc0fbfffff2c8000082c90000aac9000094ff0000
+      m_SelectedIDs: 201f0300
+      m_LastClickedID: 204576
+      m_ExpandedIDs: e0b4f8ff9e29f9ffd051faff28b3faff3815fbff8c9ffbff1e01fcffc80efdff6270fdff1ce0fdff9441feffa8a3feffca04fffff004ffffc26fffffc0fbffffa8ca0000e0ca000010cb000018cb00004ecb000080cd000094cd00009ccd0000bccd0000c4cd0000facd00000ace00001cce00003eb1010052b1010072b1010076b1010092b10100ceb10100e6b10100eab10100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -410,9 +410,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.11413409, y: 8.604595, z: -5.8932295}
+    m_Target: {x: 7.981522, y: 2.155621, z: -12.613296}
     speed: 2
-    m_Value: {x: 0.11413409, y: 8.604595, z: -5.8932295}
+    m_Value: {x: 7.981522, y: 2.155621, z: -12.613296}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -440,13 +440,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.5127914, y: 0.01287675, z: -0.007692438, w: 0.8583822}
+    m_Target: {x: 0.67881393, y: 0.045058448, z: -0.04179977, w: 0.7317337}
     speed: 2
-    m_Value: {x: 0.5127914, y: 0.01287675, z: -0.007692438, w: 0.8583822}
+    m_Value: {x: 0.67881393, y: 0.045058448, z: -0.04179977, w: 0.7317337}
   m_Size:
-    m_Target: 6.3858724
+    m_Target: 54.665474
     speed: 2
-    m_Value: 6.3858724
+    m_Value: 54.665474
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -610,8 +610,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -624,18 +624,18 @@ MonoBehaviour:
       y: 17
       width: 423
       height: 400
-    m_Scale: {x: 1.25, y: 1.25}
-    m_Translation: {x: 211.5, y: 200}
+    m_Scale: {x: 1.2874999, y: 1.2874999}
+    m_Translation: {x: 216.915, y: 200.78001}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -169.2
-      y: -160
-      width: 338.4
-      height: 320
+      x: -168.47768
+      y: -155.94565
+      width: 328.5437
+      height: 310.67963
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
@@ -683,31 +683,31 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefabs/Enemys
+    - Assets/Scripts/GameController
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Prefabs/Enemys
+  - Assets/Scripts/GameController
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\10099.000\Desktop\Immortal\Immortal
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 127}
-    m_SelectedIDs: 00280000
-    m_LastClickedID: 10240
-    m_ExpandedIDs: 00000000522700003028000096280000c0280000042a0000502a0000d02a0000d02d0000362e0000442e0000762e0000ac2e0000ce2e0000d42e0000102f0000a22f0000203000002830000020c5000022c5000024c5000026c5000028c5000000ca9a3b
+    scrollPos: {x: 0, y: 239}
+    m_SelectedIDs: 142f0000
+    m_LastClickedID: 12052
+    m_ExpandedIDs: 00000000522700003028000096280000c0280000042a0000502a0000d02a0000d02d0000362e0000442e0000762e0000ac2e0000ce2e0000d42e0000102f0000142f0000a22f0000203000002830000030c5000032c5000034c5000036c5000038c5000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Rooms
-      m_OriginalName: Rooms
+      m_Name: GameController
+      m_OriginalName: GameController
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 11796
+      m_UserData: 12052
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -724,7 +724,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000522700003028000096280000c0280000042a0000502a0000d02a0000d02d0000362e0000762e0000ac2e0000ce2e0000d42e0000102f0000a22f0000203000002830000020c5000022c5000024c5000026c5000028c50000
+    m_ExpandedIDs: 00000000522700003028000096280000c0280000042a0000502a0000d02a0000d02d0000362e0000442e0000762e0000ac2e0000ce2e0000d42e0000102f0000a22f0000203000002830000030c5000032c5000034c5000036c5000038c50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -9,20 +9,30 @@ public class Doorm : MonoBehaviour
     public Vector3 playerTarget;
     public int from;
     public int to;
-    Vector3[] loca = F1Creater.Location;
+    public int Floor;
+    Vector3[] loca;
     GameObject barrier;
     Transform player;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        switch (Floor)
+        {
+            case 1:loca = F1Creater.Location;
+                break;
+            case 2:loca = F2Creater.Location;
+                break;
+            case 3:loca = F3Creater.Location;
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
-            ChangeState();
+            OpenDoor();
     }
 
     public void ChangeRoom()
@@ -30,12 +40,13 @@ public class Doorm : MonoBehaviour
 
     }
 
-    public void ChangeState()
+    public void OpenDoor()
     {
         canAccess = true;
         barrier = this.transform.GetChild(1).gameObject;
         Destroy(barrier);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
