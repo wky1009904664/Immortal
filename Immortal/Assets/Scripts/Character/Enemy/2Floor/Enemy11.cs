@@ -16,6 +16,7 @@ public class Enemy11 : MonoBehaviour {
     AudioClip EnemyDie;
 
     public int Health=100;
+    public float walkspeed=3;
     public float Attackcd = 0.3f;
     public float bulletSpeed = 1000;
 
@@ -23,7 +24,7 @@ public class Enemy11 : MonoBehaviour {
     void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();
         dire = this.transform.forward;
-        agent = this.GetComponent<NavMeshAgent>();
+        //agent = this.GetComponent<NavMeshAgent>();
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
         audioSource = this.GetComponent<AudioSource>();
         EnemyShotEffect = (AudioClip)Resources.Load("Music/EnemyBullet");
@@ -35,7 +36,7 @@ public class Enemy11 : MonoBehaviour {
         if (Health <= 0)
             Die();
         timeval += Time.deltaTime;
-        agent.SetDestination(player.position);
+        WalkToTarget(player.position);
         if (timeval >= Attackcd)
         {
             Attack();
@@ -65,5 +66,11 @@ public class Enemy11 : MonoBehaviour {
     {
         audioSource.PlayOneShot(EnemyDie);
         Destroy(this.gameObject,0.5f);
+    }
+
+    void WalkToTarget(Vector3 target)
+    {
+        transform.Translate((target - transform.position).normalized * walkspeed * Time.deltaTime, Space.World);
+        transform.LookAt(target);
     }
 }

@@ -15,7 +15,7 @@ public class RoomController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();
-        room1 = this.transform.Find("room1").gameObject;
+       // room1 = this.transform.Find("room1").gameObject;
         room2 = this.transform.Find("room2").gameObject;
         room3 = this.transform.Find("room3").gameObject;
         room4 = this.transform.Find("room4").gameObject;

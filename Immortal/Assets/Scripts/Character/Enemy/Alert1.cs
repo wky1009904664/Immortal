@@ -12,6 +12,7 @@ public class Alert1 : MonoBehaviour {
 
 
     private bool AlertIsTrue = false;
+    public float  SpeedTreeImporter=10;
     public Vector3 wanderDirection;
     public float wanderDistance;
     public float walkspeed;
@@ -52,7 +53,7 @@ public class Alert1 : MonoBehaviour {
         lightt = (GameObject)Resources.Load("Prefabs/DarkLight");
         origin = this.transform.position;
         rigi = this.GetComponent<Rigidbody>();
-         agent = this.GetComponent<NavRun>();
+         //agent = this.GetComponent<NavRun>();
         target = origin + wanderDirection * wanderDistance;
     }
 	
@@ -60,7 +61,7 @@ public class Alert1 : MonoBehaviour {
 	void Update () {
         if (Health <= 0)
             Die();
-        
+        Debug.Log(state);
 
         switch (state)
         {
@@ -96,11 +97,14 @@ public class Alert1 : MonoBehaviour {
        
         if (flag == 0)//朝1走
         {
-            agent.NavAgent(target);
-            // //rigi.velocity = wanderDirection.normalized * walkspeed;
             // this.transform.Translate((wanderDirection) * walkspeed * Time.deltaTime, Space.World);
-            // Quaternion quat = Quaternion.LookRotation(target1 - this.transform.position);
-            // this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            WalkToTarget(target);
+            //agent.NavAgent(target);
+            //rigi.velocity = wanderDirection.normalized * walkspeed;
+            //WalkToTarget(player.position);
+            //   Quaternion quat = Quaternion.LookRotation(target - this.transform.position);
+            //   this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            //transform.LookAt(target);
             if (Vector3.Distance(this.transform.position, target) <= 0.1f)
             {
                 flag = 1;
@@ -108,11 +112,13 @@ public class Alert1 : MonoBehaviour {
         }
         if (flag == 1)
         {
-            agent.NavAgent(origin);
-            // this.transform.Translate(-wanderDirection * walkspeed * Time.deltaTime, Space.World);
-            // Quaternion quat = Quaternion.LookRotation(target2 - this.transform.position);
+            //agent.NavAgent(origin);
+            //this.transform.Translate(-wanderDirection * walkspeed * Time.deltaTime, Space.World);
+            // Quaternion quat = Quaternion.LookRotation(origin - this.transform.position);
             // Quaternion rota = Quaternion.Euler(0, 90, 0);
-            // this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            //  this.transform.rotation = Quaternion.Slerp(transform.rotation, quat, turnspeed);
+            // transform.LookAt(origin);
+            WalkToTarget(origin);
             if (Vector3.Distance(this.transform.position, origin) <= 0.1f)
             {
                 flag = 0;
@@ -147,11 +153,14 @@ public class Alert1 : MonoBehaviour {
     public void DecreaseHealth()
     {
         Health -= 20;
+        if (Health <= 0)
+            Die();
     }
 
     void Follow()
     {
-        agent.NavAgent(player.position);
+        transform.Translate((player.position - transform.position).normalized*walkspeed * Time.deltaTime, Space.World);
+        transform.LookAt(player);
         if ((this.transform.position - player.position).magnitude >= followDistance)
         {
             state = 2;
@@ -162,7 +171,10 @@ public class Alert1 : MonoBehaviour {
     {
         float dis1 = (this.transform.position - origin).magnitude;
         float dis2 = (this.transform.position - target).magnitude;
-        agent.NavAgent(dis1 < dis2 ? origin : target);
+        //agent.NavAgent(dis1 < dis2 ? origin : target);
+        Vector3 ttt = dis1 < dis2 ? origin : target;
+        WalkToTarget(ttt);
+        transform.LookAt(ttt);
         if ((this.transform.position - player.position).magnitude <= AlertRadius)
         {
             state = 1;
@@ -179,6 +191,12 @@ public class Alert1 : MonoBehaviour {
         float dis = player.position.y - this.transform.position.y;
         Instantiate(lightt, this.transform.position + new Vector3(0, dis, 0), Quaternion.identity);
         Destroy(this.gameObject);
+    }
+
+    void WalkToTarget(Vector3 target)
+    {
+        transform.Translate((target - transform.position).normalized * walkspeed * Time.deltaTime, Space.World);
+        transform.LookAt(target);
     }
 
 }
