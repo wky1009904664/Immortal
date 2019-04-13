@@ -8,7 +8,7 @@ public class Boss1 : MonoBehaviour
     public int state = 0;
     public int shotAmount;
     public float Attackcd;
-    public float bulletSpeed;
+    private float bulletSpeed = 50;
     public float statetime = 6.0f;
     public float rotaSpeed = 10;
     public int height;
@@ -35,7 +35,7 @@ public class Boss1 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        bullet = (GameObject)Resources.Load("Prefabs/bounceBullet");
+        bullet = (GameObject)Resources.Load("Prefabs/bounceBall");
         boss = this.GetComponent<Rigidbody>();
         door = (GameObject)Resources.Load("Prefabs/Door");
         origin = this.transform.position;
@@ -122,7 +122,8 @@ public class Boss1 : MonoBehaviour
             {
                 direction = Quaternion.Euler(0, 360 / shotAmount, 0) * direction;
                 rigi = Instantiate(bullet, this.transform.position + direction.normalized * 0.1f + new Vector3(0, -2.0f, 0), Quaternion.identity).GetComponent<Rigidbody>();
-                rigi.AddForce(direction.normalized * bulletSpeed);
+                //rigi.AddForce(direction.normalized * bulletSpeed);
+                rigi.velocity = direction.normalized * bulletSpeed;
             }
             attackval = 0;
         }
@@ -134,7 +135,7 @@ public class Boss1 : MonoBehaviour
         gunLine.SetPosition(0, transform.position - new Vector3(0, 2, 0));
         shootRay.origin = transform.position - new Vector3(0, 2, 0);
         shootRay.direction = transform.forward;
-        if(Physics.Raycast(shootRay,out shootHit, 100))
+        if(Physics.Raycast(shootRay,out shootHit, 20))
         {
             PlayerMovement player = shootHit.collider.GetComponent<PlayerMovement>();
             if (player != null)
@@ -144,7 +145,7 @@ public class Boss1 : MonoBehaviour
             }
             else
             {
-                gunLine.SetPosition(1, shootRay.origin + shootRay.direction * 100);
+                gunLine.SetPosition(1, shootRay.origin + shootRay.direction * 20);
             }
         }
     }

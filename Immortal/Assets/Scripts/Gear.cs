@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Gear : MonoBehaviour {
 
@@ -73,8 +74,7 @@ public class Gear : MonoBehaviour {
 
         if (red && yellow && blue)
         {
-            Camera.main.GetComponent<CameraMove>().Move1();
-            player.position = new Vector3(63, 0.82f, -20);
+            SceneManager.LoadScene(4);
             Destroy(this);
         }
     }

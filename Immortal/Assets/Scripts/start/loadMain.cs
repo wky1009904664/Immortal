@@ -29,6 +29,6 @@ public class loadMain : MonoBehaviour {
 	void btClick(){
 		print ("click");
 //		this.Destroy ();
-		SceneManager.LoadScene (3);
+		SceneManager.LoadScene (1);
 	}
 }

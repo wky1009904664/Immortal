@@ -17,18 +17,18 @@ public class BounceBullet : MonoBehaviour {
             other.GetComponent<PlayerMovement>().DecreaseHealth(30);
             Destroy(this.gameObject);
         }
-        if (other.name == "Wall1" || other.name == "Wall2")
-        {
-            rigi.velocity = new Vector3(rigi.velocity.x, rigi.velocity.y, -rigi.velocity.z);
-            if (timeval >= 0.1f)
-                health--;
-        }
-        else if (other.name == "Wall3" || other.name == "Wall4")
-        {
-            rigi.velocity = new Vector3(-rigi.velocity.x, rigi.velocity.y, rigi.velocity.z);
-            if (timeval >= 0.1f)
-                health--;
-        }
+      //  if (other.name == "Wall1" || other.name == "Wall2")
+      //  {
+      //      rigi.velocity = new Vector3(rigi.velocity.x, rigi.velocity.y, -rigi.velocity.z);
+      //      if (timeval >= 0.1f)
+      //          health--;
+      //  }
+      //  else if (other.name == "Wall3" || other.name == "Wall4")
+      //  {
+      //      rigi.velocity = new Vector3(-rigi.velocity.x, rigi.velocity.y, rigi.velocity.z);
+      //      if (timeval >= 0.1f)
+      //          health--;
+      //  }
        
     }
 

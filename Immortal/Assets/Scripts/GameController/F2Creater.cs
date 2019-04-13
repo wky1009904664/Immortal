@@ -16,7 +16,7 @@ public class F2Creater : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 6; i++)
         {
             ord = Random.Range(0, 25);
             path = string.Format("Prefabs/Rooms/Room1 ({0})", ord);

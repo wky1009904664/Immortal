@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour {
     private float timer;
-    public float distance;
+    private  float distance=4;
 
     private void OnTriggerEnter(Collider other)
     {
-       // print(other.tag);
+        // print(other.tag);
+        Debug.Log(1);
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerMovement>().DecreaseHealth(30);

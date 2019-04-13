@@ -105,6 +105,7 @@
     <Compile Include="Assets\Scripts\GameController\F1Creater.cs" />
     <Compile Include="Assets\Scripts\GameController\F2Creater.cs" />
     <Compile Include="Assets\Scripts\GameController\F3Creater.cs" />
+    <Compile Include="Assets\Scripts\GameController\NextFloor.cs" />
     <Compile Include="Assets\Scripts\GameController\OpenDoor.cs" />
     <Compile Include="Assets\Scripts\Gear.cs" />
     <Compile Include="Assets\Scripts\KnapsackSystem\GetDarklight.cs" />

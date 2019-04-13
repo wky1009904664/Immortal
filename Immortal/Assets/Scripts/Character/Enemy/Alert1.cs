@@ -139,13 +139,20 @@ public class Alert1 : MonoBehaviour {
     {
         if (timeval >= Attackcd)
         {
-            bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, 0.4f, 0), Quaternion.identity).GetComponent<Rigidbody>();
             Vector3 direction = player.position - this.transform.position;
-            direction.y = 0;
-            bulletrigi.AddForce(direction.normalized * bulletSpeed);
-            //Debug.Log(direction);
-            // bulletrigi.velocity = direction.normalized * bulletSpeed;
-            // Debug.Log(bulletrigi.velocity);
+            for (int i = -1; i < 2; i++)
+            {
+                bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, 0.4f, 0), Quaternion.identity).GetComponent<Rigidbody>();
+                Debug.Log(i);
+                Vector3 dire1 = Quaternion.Euler(0, 30*i, 0) * direction;
+                
+                direction.y = 0;
+                bulletrigi.AddForce(dire1.normalized * bulletSpeed);
+                //Debug.Log(direction);
+                // bulletrigi.velocity = direction.normalized * bulletSpeed;
+                // Debug.Log(bulletrigi.velocity);
+                
+            }
             timeval = 0;
         }
     }

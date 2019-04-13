@@ -14,6 +14,8 @@ public class BigTree : MonoBehaviour {
     private float shootT = 0f;
     private float bounceT = 0f;
 
+    int health = 200;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();  //在当前场景
@@ -74,5 +76,18 @@ public class BigTree : MonoBehaviour {
         }
         //audioSource.PlayOneShot(EnemyShotEffect);
        // timeval = 0;
+    }
+
+    void Die()
+    {
+        transform.parent.GetChild(2).gameObject.SetActive(true);
+        Destroy(this.gameObject);
+    }
+
+    public void DecreaseHealth()
+    {
+        health -= 20;
+        if (health <= 0)
+            Die();
     }
 }

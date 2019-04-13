@@ -31,6 +31,9 @@ public class Enemy2 : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
         bullet = (GameObject)Resources.Load("Prefabs/EnemyBullet");
+        audioSource = this.GetComponent<AudioSource>();
+        EnemyShotEffect = (AudioClip)Resources.Load("Music/EnemyBullet");
+        EnemyDie = (AudioClip)Resources.Load("Music/EnemyDie");
         darkLight = (GameObject)Resources.Load("Prefabs/Light");
     }
 

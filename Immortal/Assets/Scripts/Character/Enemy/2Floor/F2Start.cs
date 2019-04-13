@@ -29,7 +29,7 @@ public class F2Start : MonoBehaviour {
 	void Update () {
         if (ismoon1 && ismoon2)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(6);
         }
 	}
 

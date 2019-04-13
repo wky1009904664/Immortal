@@ -203,7 +203,7 @@ public class PlayerMovement : MonoBehaviour {
       
            hie = 1.05f + hit.point.y - 0.1f;
         trans.Translate(h * speed * Time.deltaTime,0, v * speed * Time.deltaTime,Space.World);
-        trans.Translate(0, hie - rb.position.y, 0,Space.World);
+      //  trans.Translate(0, hie - rb.position.y, 0,Space.World);
         //rb.MovePosition(new Vector3(rb.position.x,hie,rb.position.z));
         Turning();
         
