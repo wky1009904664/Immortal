@@ -43,7 +43,6 @@ public class EnemyF : MonoBehaviour
         for (int i = -1; i < 2; i++)
         {
             bulletrigi = Instantiate(bullet, this.transform.position + new Vector3(0, 0.4f, 0), Quaternion.identity).GetComponent<Rigidbody>();
-            Debug.Log(i);
             Vector3 dire1 = Quaternion.Euler(0, 30 * i, 0) * direction;
 
             direction.y = 0;

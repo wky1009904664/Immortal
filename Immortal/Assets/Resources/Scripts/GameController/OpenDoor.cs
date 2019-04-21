@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     Transform Doors;
+    bool flag = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,18 +15,29 @@ public class OpenDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void CheckAmount()
-    {
-        if (transform.childCount == 1)
+        if(transform.childCount==0)
         {
-            Doors = transform.parent.GetChild(3);
-            foreach(Transform child in Doors)
+            if (flag)
             {
-                child.GetComponent<Doorm>().OpenDoor();
+                Doors = transform.parent.GetChild(3);
+                foreach (Transform child in Doors)
+                {
+                    child.GetComponent<Doorm>().OpenDoor();
+                }
+                flag = false;
             }
         }
     }
+
+  //public void CheckAmount()
+  //{
+  //    if (transform.childCount == 1)
+  //    {
+  //        Doors = transform.parent.GetChild(3);
+  //        foreach(Transform child in Doors)
+  //        {
+  //            child.GetComponent<Doorm>().OpenDoor();
+  //        }
+  //    }
+  //}
 }

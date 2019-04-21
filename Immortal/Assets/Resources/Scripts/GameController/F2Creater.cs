@@ -6,6 +6,7 @@ public class F2Creater : MonoBehaviour
 {
     public static Vector3[] Location = { new Vector3(0, 0, 0), new Vector3(19, 0, 0), new Vector3(9.3f, 0, -16.5f),  new Vector3(0, 0, -33.2f), new Vector3(19, 0, -33.2f), new Vector3(9.3f, 0, -49.3f),new Vector3(19.2f,0,-65.6f) };
     Quaternion angle = Quaternion.Euler(0, 30, 0);
+    static List<GameObject> Rooms = new List<GameObject>();
     int ord;
     string path;
     string name;
@@ -24,16 +25,28 @@ public class F2Creater : MonoBehaviour
             room = (GameObject)Resources.Load(path);
             Door = GameObject.Find(name).GetComponent<Transform>();
             f1 = Instantiate(room, Location[i], angle);
+            Rooms.Add(f1);
             Door.parent = f1.transform;
             f2 = f1.transform.GetChild(0);
             f2 = f2.transform.GetChild(3);
             Destroy(f2.gameObject);
+            if (i != 0)
+            {
+                f1.SetActive(false);
+            }
         }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public static void OpenRoom(int from, int to)
+    {
+        Rooms[from - 1].SetActive(false);
+        Rooms[to - 1].SetActive(true);
     }
 }

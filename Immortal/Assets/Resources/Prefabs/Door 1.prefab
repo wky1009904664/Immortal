@@ -3998,6 +3998,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abdb60d8b873f0446b41194b5b7778f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTarget: {x: 0, y: 0, z: 0}
+  from: 0
+  to: 0
+  Floor: 0
 --- !u!1 &7298639052276517284
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,6 +4782,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7510308882242998562}
+  - component: {fileID: 7122718451901952356}
+  - component: {fileID: 3680140835904065197}
   m_Layer: 0
   m_Name: Fence
   m_TagString: Untagged
@@ -4812,6 +4818,40 @@ Transform:
   m_Father: {fileID: 6314246830308583003}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7122718451901952356
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002479288027848138}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5f27dac432c9e54e8699b1e40de2fc7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &3680140835904065197
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002479288027848138}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0e9521ecd86607b4dbc465b1cda059be, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &9113025424476758260
 GameObject:
   m_ObjectHideFlags: 0

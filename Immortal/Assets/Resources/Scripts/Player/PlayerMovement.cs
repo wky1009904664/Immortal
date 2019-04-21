@@ -284,8 +284,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             Health -= n;
             audioSource.PlayOneShot(PlayerHurt);
-            if (Health <= 0)
-                Die();
+           // if (Health <= 0)
+           //     Die();
         }
     }
 

@@ -62,8 +62,6 @@ public class Alert1 : MonoBehaviour {
 	void Update () {
         if (Health <= 0)
             Die();
-        Debug.Log(state);
-
         switch (state)
         {
             case 0://巡逻

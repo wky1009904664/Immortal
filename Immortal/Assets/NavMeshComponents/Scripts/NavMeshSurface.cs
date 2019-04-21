@@ -17,7 +17,7 @@ namespace UnityEngine.AI
     {
         void Start()
         {
-            BuildNavMesh();
+           BuildNavMesh();
         }
 
         [SerializeField]

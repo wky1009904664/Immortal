@@ -13,13 +13,17 @@ public class Doorm : MonoBehaviour
     Vector3[] loca;
     GameObject barrier;
     Transform player;
+    Animator shanlan;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        shanlan = transform.GetChild(1).GetComponent<Animator>();
         switch (Floor)
         {
             case 1:loca = F1Creater.Location;
+                Debug.Log("sfsfsfssfsff");
                 break;
             case 2:loca = F2Creater.Location;
                 break;
@@ -43,8 +47,11 @@ public class Doorm : MonoBehaviour
     public void OpenDoor()
     {
         canAccess = true;
+        // barrier = this.transform.GetChild(1).gameObject;
+        // Destroy(barrier);
+        shanlan.SetBool("UpFence", true);
         barrier = this.transform.GetChild(1).gameObject;
-        Destroy(barrier);
+        Destroy(barrier, 1);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,12 +60,26 @@ public class Doorm : MonoBehaviour
         {
             if (canAccess)
             {
-                player.position = loca[to - 1];
+               // shanlan.SetBool("UpFence", false);
+                player.position = new Vector3(loca[to - 1].x, -0.9f, loca[to - 1].z); 
                 Camera2.dire = (loca[to - 1] - loca[from - 1]).normalized;
-                Debug.Log(Camera2.dire);
                 Camera.main.GetComponent<Camera2>().speed = 0;
                 Camera.main.GetComponent<Camera2>().dec = false;
                 Camera.main.GetComponent<Camera2>().Move1(Camera2.dire);
+                switch (Floor)
+                {
+                    case 1:
+                        F1Creater.OpenRoom(from, to);
+                        break;
+                    case 2:
+                        F2Creater.OpenRoom(from, to);
+                        break;
+                    case 3:
+                        F3Creater.OpenRoom(from, to);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

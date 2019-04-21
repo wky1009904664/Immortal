@@ -27,7 +27,6 @@ public class EnemyC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(player);
         agent.SetDestination(player.position);
     }
 

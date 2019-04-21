@@ -22,8 +22,7 @@ public class AddEnemy
         {
             GameObject enemys = new GameObject("Enemys");
             enemys.transform.parent = aaaa[i];
-
-          
+           
         }
     }
 }
