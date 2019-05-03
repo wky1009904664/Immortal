@@ -34,6 +34,7 @@ public class EnemyB : MonoBehaviour
         if (dis.magnitude <= explodeRange)
         {
             Instantiate(Explode);
+          
             if (dis.magnitude <= demageRange)
                 player.GetComponent<PlayerMovement>().DecreaseHealth();
             Destroy(this.gameObject);

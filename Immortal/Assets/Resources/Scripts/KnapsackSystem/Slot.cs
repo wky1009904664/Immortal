@@ -71,6 +71,11 @@ public class Slot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPoin
             GoodUI gu = this.transform.GetChild(0).GetComponent<GoodUI>();
             if (gu.good.goodProperty.canbeused == 1)
             {
+                if(gu.good.goodProperty.ID==8)
+                {
+                    Transform player = GameObject.FindWithTag("Player").transform;
+                    player.GetComponent<PlayerMovement>().ClearScreen();
+                }
                 GameObject goodUI = this.transform.GetChild(0).GetComponent<GameObject>();
                 KnapsackManager.GetInstance.HideToolTilePanel();
                 DestroyImmediate(this.transform.GetChild(0).gameObject);

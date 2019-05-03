@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     public float JumpForce;
     public GameObject DeathImage;
     public Transform outpoint;
+    public float ClearRange = 5;
     
     Rigidbody bulletrb;
     Rigidbody rb;
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Joker = 0;
+        outpoint = transform.GetChild(0);
         floorMask = LayerMask.GetMask("Floor");
         ladderMask = LayerMask.GetMask("Ladder");
         UIMask = LayerMask.GetMask("KnapsackCanvasSystem");
@@ -296,12 +298,13 @@ public class PlayerMovement : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
-    void ClearScreen()
+    public void ClearScreen()
     {
         var bullets = GameObject.FindGameObjectsWithTag("Bullet");
         foreach(var bullet in bullets)
         {
-            Destroy(bullet);
+            if ((this.transform.position - bullet.transform.position).magnitude <= ClearRange)
+                Destroy(bullet);
         }
     }
 } 

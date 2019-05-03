@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss1 : MonoBehaviour
 {
-
+    //前摇-寻路-散射-前摇-寻路-散射-回中心-激光
     public int state = 0;
     public int shotAmount;
+    Transform player;
     public float Attackcd;
-    private float bulletSpeed = 50;
+    private float bulletSpeed = 5;
     public float statetime = 6.0f;
     public float rotaSpeed = 10;
     public int height;
@@ -24,8 +26,11 @@ public class Boss1 : MonoBehaviour
     Vector3 rightup = new Vector3(12, 0, 7);
     Vector3 rightbot = new Vector3(12, 0, -7);
     float distance = new Vector3(12, 0, 7).magnitude;
+    public float qianyao = 0.7f;
+    NavMeshAgent nav;
     Vector3 origin;
     GameObject door;
+    int sanshetimes = 0;
 
     LineRenderer gunLine;
     Ray shootRay;
@@ -35,7 +40,9 @@ public class Boss1 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        bullet = (GameObject)Resources.Load("Prefabs/bounceBall");
+        bullet = (GameObject)Resources.Load("Prefabs/bounceBullet");
+        player = GameObject.FindWithTag("Player").transform;
+        nav = GetComponent<NavMeshAgent>();
         boss = this.GetComponent<Rigidbody>();
         door = (GameObject)Resources.Load("Prefabs/Door");
         origin = this.transform.position;
@@ -45,69 +52,60 @@ public class Boss1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (health <= 0)
             Die();
-        this.transform.Rotate(new Vector3(0, 1, 0), rotaSpeed * Time.deltaTime);
+        attackval += Time.deltaTime;
+        timeval += Time.deltaTime;
+        // this.transform.Rotate(new Vector3(0, 1, 0), rotaSpeed * Time.deltaTime);
         switch (state)
         {
-            case 0://旋转X + 圆形弹幕
-                attackval += Time.deltaTime;
-                timeval += Time.deltaTime;
-               // var child = this.GetComponentsInChildren<LineRen>();
-                foreach(Transform child in this.transform)
-                {
-                    child.GetComponent<LineRenderer>().enabled = true;
-                }
-                Attack1();
-                if (timeval >= statetime)
-                {
-                    state = 1;
-                    timeval = 0;
-                    timeval2=0;
-                    attackval = 0;
-                    foreach (Transform child in this.transform)
-                    {
-                        child.GetComponent<LineRenderer>().enabled = false;
-                    }
-                }
-                break;
-            case 1://跳跃
-                timeval2 += Time.deltaTime;
-                attackval += Time.deltaTime;
-                if (timeval2 < 1.0f)
-                    Jumpto(leftup);
-                else if (timeval2 < 2.0f)
-                    Jumpto(leftbot - leftup);
-                else if (timeval2 < 3.0f)
-                    Jumpto(-leftbot);
-                else if (timeval2 < 4.0f)
-                    Jumpto(rightup);
-                else if (timeval2 < 5.0f)
-                    Jumpto(rightbot - rightup);
-                else if (timeval2 < 6.0f)
-                    Jumpto(-rightbot);
+            case 0:
+                if (timeval <= qianyao)
+                    qianyao1();
+                else if (timeval <= statetime / 2)
+                    nav.SetDestination(player.position);
                 else
                 {
-                    timeval2 = 0;
-                    state = 2;
+                    Attack1();
+                    timeval = 0;
+                    sanshetimes++;
                 }
-                if (attackval >= 0.99f)
+                if (sanshetimes >= 2)
                 {
-                    boss.AddForce(0, height, 0);
-                    Attack2();
-                    attackval = 0;
+                    state = 1;
+                    break;
                 }
                 break;
-            case 2://
-                timeval += Time.deltaTime;
-                attackval += Time.deltaTime;
-                Attack1();
-                if (timeval >= statetime)
+            case 1://旋转X 
+
+                // var child = this.GetComponentsInChildren<LineRen>();
+                if (timeval <= 2.0f)
                 {
-                    state = 0;
-                    timeval = 0;
-                    timeval2 = 0;
-                    attackval = Attackcd;
+                    Vector3 zero = transform.parent.position;
+
+                    //transform.Translate((zero - transform.position).normalized * Time.deltaTime * 0.5f,Space.World);
+                    nav.SetDestination(zero);
+                }
+                else
+                {
+                    this.transform.Rotate(new Vector3(0, 1, 0), rotaSpeed * Time.deltaTime);
+                    foreach (Transform child in this.transform)
+                    {
+                        child.GetComponent<LineRenderer>().enabled = true;
+                    }
+                    if (timeval >= statetime)
+                    {
+                        state = 0;
+                        timeval = 0;
+                        timeval2 = 0;
+                        attackval = 0;
+                        sanshetimes = 0;
+                        foreach (Transform child in this.transform)
+                        {
+                            child.GetComponent<LineRenderer>().enabled = false;
+                        }
+                    }
                 }
                 break;
         }
@@ -121,9 +119,9 @@ public class Boss1 : MonoBehaviour
             for (int i = 0; i < shotAmount; i++)
             {
                 direction = Quaternion.Euler(0, 360 / shotAmount, 0) * direction;
-                rigi = Instantiate(bullet, this.transform.position + direction.normalized * 0.1f + new Vector3(0, -2.0f, 0), Quaternion.identity).GetComponent<Rigidbody>();
+                rigi = Instantiate(bullet, this.transform.position + direction.normalized * 0.1f + new Vector3(0, 0.5f, 0), Quaternion.identity).GetComponent<Rigidbody>();
                 //rigi.AddForce(direction.normalized * bulletSpeed);
-                rigi.velocity = direction.normalized * bulletSpeed;
+                //rigi.velocity = direction.normalized * bulletSpeed;
             }
             attackval = 0;
         }
@@ -150,16 +148,7 @@ public class Boss1 : MonoBehaviour
         }
     }
 
-    void Attack2(int amount = 5)
-    {
-        Vector3 direction = this.transform.forward;
-        for (int i = 0; i < 5; i++)
-        {
-            direction = Quaternion.Euler(0, 360 / 5, 0) * direction;
-            rigi = Instantiate(bullet, this.transform.position + direction.normalized * 0.1f + new Vector3(0, -2.0f, 0), Quaternion.identity).GetComponent<Rigidbody>();
-            rigi.AddForce(direction.normalized * bulletSpeed);
-        }
-    }
+
 
 
 
@@ -179,5 +168,15 @@ public class Boss1 : MonoBehaviour
     void Jumpto(Vector3 target)
     {
         this.transform.Translate(target * Time.deltaTime, Space.World);
+    }
+
+    void qianyao1()
+    {
+
+    }
+
+    void qianyao2()
+    {
+
     }
 }

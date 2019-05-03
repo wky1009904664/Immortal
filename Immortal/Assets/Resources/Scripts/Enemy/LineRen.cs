@@ -34,7 +34,7 @@ public class LineRen : MonoBehaviour {
             }
             else
             {
-                if(shootHit.collider.tag=="Wall")
+
                     gunLine.SetPosition(1, shootHit.point);
             }
         }
