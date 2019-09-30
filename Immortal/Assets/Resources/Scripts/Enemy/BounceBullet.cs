@@ -15,7 +15,7 @@ public class BounceBullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(rigi.velocity);
+
 	}
 
     private void OnCollisionEnter(Collision collision)

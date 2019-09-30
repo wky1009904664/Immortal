@@ -16,6 +16,7 @@ public class EnemyF : MonoBehaviour
     public float bulletSpeed = 1000;
     public float shotcd = 0.5f;
     float timeval = 0;
+    bool oneable;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +27,24 @@ public class EnemyF : MonoBehaviour
         EnemyShotEffect = (AudioClip)Resources.Load("Music/EnemyBullet");
         EnemyDie = (AudioClip)Resources.Load("Music/EnemyDie");
         agent = this.GetComponent<NavMeshAgent>();
+        oneable = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        oneable = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeval += Time.deltaTime;
-        agent.SetDestination(player.position);
-        if (timeval >= shotcd)
-            Attack();
+        if (oneable)
+        {
+            timeval += Time.deltaTime;
+            agent.SetDestination(player.position);
+            if (timeval >= shotcd)
+                Attack();
+        }
     }
 
     void Attack()

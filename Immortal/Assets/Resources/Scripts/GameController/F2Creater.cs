@@ -14,6 +14,7 @@ public class F2Creater : MonoBehaviour
     Transform Door;
     GameObject f1;
     Transform f2;
+    public GameObject bossroom;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class F2Creater : MonoBehaviour
                 f1.SetActive(false);
             }
         }
-        
+        Rooms.Add(bossroom);
     }
 
     // Update is called once per frame

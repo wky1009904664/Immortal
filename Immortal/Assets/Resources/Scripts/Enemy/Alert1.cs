@@ -184,8 +184,6 @@ public class Alert1 : MonoBehaviour {
 
     void Die()
     {
-        float dis = player.position.y - this.transform.position.y;
-        Instantiate(lightt, this.transform.position + new Vector3(0, dis, 0), Quaternion.identity);
         Destroy(this.gameObject);
     }
 

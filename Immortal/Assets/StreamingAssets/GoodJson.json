@@ -3,26 +3,26 @@
     "goodProperty": {
       "ID": 1,
       "name": "qiu",
-      "description": "\u8fd9\u662f\u7403\u000d\u000a", //��
-      "sprite": "UI/Good (1)",
-      "canbeused": 1
+      "description": "              十字架 \n   他曾经宣誓要守卫这\n份信仰，神圣的十字曾\n指引着他。再回首，却\n发现手上的逆十字之剑，\n再也无法放下", //
+      "sprite": "UI/icon_01",
+      "canbeused": 0
     }
   },
   {
     "goodProperty": {
       "ID": 2,
       "name": "zhegnfangti",
-      "description": "\u8fd9\u662f\u6b63\u65b9\u4f53\u000d\u000a", //������
-      "sprite": "UI/Good (17)",
-      "canbeused": 1
+      "description": "                圣经 \n  《Bible》是神的话语，\n借信徒在世间流传。但\n。。。如果，这层介质\n变质了呢？", //正方体
+      "sprite": "UI/icon_02",
+      "canbeused": 0
     }
   },
   {
     "goodProperty": {
       "ID": 3,
       "name": "Wing",
-      "description": "\u8fd9\u662f\u957f\u65b9\u4f53", //������
-      "sprite": "UI/Good (2)",
+      "description": "                蜡烛 \n  火是力量的本源，即使\n是一只蜡烛，即使只是\n一根蜡烛。", //长方体
+      "sprite": "UI/icon_03",
       "canbeused": 0
     }
 
@@ -31,45 +31,37 @@
     "goodProperty": {
       "ID": 4,
       "name": "King",
-      "description": "\u8fd9\u662f\u80f6\u56ca", //����
-      "sprite": "UI/Good (3)",
-      "canbeused": 1
+      "description": "                  ΙΧΘΥ∑  \n  耶稣基督，上帝之子，救世主 ", 
+      "sprite": "UI/icon_04",
+      "canbeused": 0
     }
   },
   {
     "goodProperty": {
       "ID": 5,
       "name": "TUBG",
-      "description": "����5",
-      "sprite": "UI/Good (4)",
-      "canbeused": 1
+      "description": "                钥匙 \n  这是门的钥匙。只有从\n正确的门进去，才是耶稣，\n否则就是贼，是强盗。",
+      "sprite": "UI/icon_05",
+      "canbeused": 0
     }
   },
   {
     "goodProperty": {
       "ID": 6,
       "name": "sfsf",
-      "description": "����6",
-      "sprite": "UI/Good (5)",
-      "canbeused": 1
+      "description": "                羊 \n  我们都如羊走迷，各\n人偏行己路。",
+      "sprite": "UI/icon_06",
+      "canbeused": 0
     }
   },
   {
     "goodProperty": {
       "ID": 7,
       "name": "tyeht",
-      "description": "����7",
-      "sprite": "UI/Good (6)",
-      "canbeused": 1
-    }
-  },
-  {
-    "goodProperty": {
-      "ID": 8,
-      "name": "Bomb",
-      "description": "It Can clear a certain range of bullets ", 
-      "sprite": "UI/Bomb",
-      "canbeused": 1
+      "description": "                祈祷 \n  我们是神的祭司。我们天\n天站着事奉神,不停的祈祷\n赎罪，却只是循环往复。\n这祭物永不能除罪",
+      "sprite": "UI/icon_07",
+      "canbeused": 0
     }
   }
+ 
 ]

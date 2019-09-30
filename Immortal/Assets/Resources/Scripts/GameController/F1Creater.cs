@@ -6,18 +6,19 @@ public class F1Creater : MonoBehaviour
 {
     public static Vector3[] Location = { new Vector3(0, 0, 0), new Vector3(19, 0, 0), new Vector3(9.3f, 0, -16.5f), new Vector3(-9.3f, 0, -16.5f), new Vector3(0,0,-33.2f), new Vector3(19,0,-33.2f), new Vector3(-9.3f,0,-49.25f), new Vector3(9.3f,0,-49.3f)};
     Quaternion angle = Quaternion.Euler(0, 30, 0);
-    static List<GameObject> Rooms = new List<GameObject>();
+     static List<GameObject> Rooms = new List<GameObject>();
     int ord;
     string path;
     string name;
     GameObject room;
+    public GameObject bossroom;
     Transform Door;
     GameObject  f1;
     Transform f2;
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 7; i++)
+        for(int i = 0; i <7; i++)
         {
            ord = Random.Range(0, 25);
            path = string.Format("Prefabs/Rooms/Room1 ({0})", ord);
@@ -36,6 +37,8 @@ public class F1Creater : MonoBehaviour
                 f1.SetActive(false);
             }
         }
+      
+        Rooms.Add(bossroom);
     }
 
     // Update is called once per frame

@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Text.RegularExpressions;
+using System;
+using System.Text;
 
 public class BaseProperty//共有属性类
 {
@@ -51,4 +53,7 @@ public class KnapsackGood {//基类
         string describe = goodProperty.description;
         return describe;
     }
+
+
+
 }

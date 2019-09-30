@@ -154,9 +154,8 @@ public class Boss1 : MonoBehaviour
 
     void Die()
     {
-        Instantiate(door, origin+new Vector3(3,0,3), Quaternion.identity);
-        Instantiate(darkLight, this.transform.position + new Vector3(0, -1.0f, 0), Quaternion.identity);
-        Instantiate(Lightt, this.transform.position + new Vector3(0.5f, -1.0f,0.5f), Quaternion.identity);
+        //transform.parent.GetChild(2).GetComponent<BossDoor>().OpenDoor();
+        Inventory.GetInstance.StoreGood(1);
         Destroy(this.gameObject);
     }
 
